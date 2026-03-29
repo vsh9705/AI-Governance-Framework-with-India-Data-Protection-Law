@@ -1,241 +1,256 @@
-# AI Governance Framework
+# AI Governance Framework — India Data Protection Edition
 
-This project addresses the critical challenges posed by modern AI systems: bias, errors, security threats, ethical dilemmas, and ineffective human-AI collaboration. The AI Governance Framework is a layered solution that deploys specialized Governance & Safety Agents to provide comprehensive, proactive oversight. This approach ensures that AI systems are technically robust, ethically aligned, and regulatory compliant. Our AI-Driven Loan Approval System use case demonstrates how to automate and secure loan approvals while enforcing ethical and regulatory standards.
+An extended version of the [AI Governance Framework](https://github.com/ruslanmv/ai-governance-framework) by Ruslan Magana Vsevolodovna, modified to add compliance checks for **India's IT Act 2000**, **DPDPA 2023**, and **GDPR EU 2016/679**.
 
-## Use Case: Self-Auditing Financial AI
+The original project had zero Indian law awareness. This version adds three new AI agents that screen every loan application against Indian data protection law before a decision is made.
 
-Our solution is a full-stack demonstration of a Trustworthy AI approach built with the BeeAI Framework and IBM Granite models. It integrates a comprehensive Safety and Governance layer to automate and secure the loan approval process.
+---
 
+## What this project does
 
+A loan application is submitted through a web portal. Seven AI agents run in sequence, each checking a different aspect of the application. The result — compliant or flagged — is shown in an auditor dashboard with detailed breakdowns per legal framework.
 
-## Overview
+### The 7-agent pipeline
 
-Modern AI systems can revolutionize business operations but also introduce risks like bias, errors, and security vulnerabilities. Our solution integrates multiple layers of governance into an AI-driven loan approval system by leveraging:
+| Step | Agent | What it checks | Law |
+|------|-------|---------------|-----|
+| 0 | DataPrivacyClassifierAgent | Classifies every field as SPDI / Personal / Non-personal | IT Act Rule 2(1)(i) |
+| 1 | SafetyControlAgent | Demographic bias in loan criteria | Anti-discrimination |
+| 2 | EthicsAgent | Ethical alignment with bank guidelines | Acme Bank Ethics Guidelines |
+| 3 | ComplianceAgent | Generic financial regulations | CF123, ADA456, BSA789, TILA101 |
+| 4 | ITActDPDPAComplianceAgent | Consent, cross-border transfer, minors, KYC, purpose | IT Act 2000 + DPDPA 2023 |
+| 5 | GDPRComplianceAgent | Lawful basis, privacy notice, automated decisions | GDPR EU 2016/679 |
+| 6 | HumanCollaborationAgent | Final approve / escalate decision | — |
 
-*   **IBM Granite Models (via Ollama):** For advanced language modeling.
-*   **BeeAI Modular Components:** Including governance agents, prompt templates, memory, workflows, and ReAct agents.
+Agents 0, 4, and 5 are new. Agents 1–3 and 6 are from the original project.
 
-The system is designed to be:
+---
 
-*   **Safe & Controlled:** Monitors for bias and anomalies.
-*   **Ethically Aligned:** Ensures decisions adhere to ethical guidelines.
-*   **Regulatory Compliant:** Audits decisions against legal standards using structured outputs.
-*   **Collaborative:** Allows human oversight to override AI decisions when necessary.
+## Key differences from the original
 
-### Key Objectives
+| | Original | This version |
+|--|----------|-------------|
+| LLM | IBM Granite 8B (local, ~5 GB) | LLaMA 3.3 70B via Groq API |
+| Framework | BeeAI + Ollama | Direct Groq Python client |
+| Storage needed | ~8 GB | ~150 MB |
+| Indian law compliance | None | IT Act 2000 + DPDPA 2023 |
+| GDPR compliance | None | Art. 5, 6, 13, 15, 17, 22 |
+| Data subject rights | None | /rights/erasure + /rights/access |
+| Portal | 2 separate Flask apps | 1 unified portal |
 
-**Challenge Objectives:**
+---
 
-- **Harness IBM Granite Models:** Integrate IBM Granite’s capabilities into our AI solution to tailor it for real-world business applications.
-- **Focus on Efficiency:** Automate workflows, optimize operations, and improve productivity.
-- **Innovate for Impact:** Create a groundbreaking solution that revolutionizes business processes across industries.
+## What gets checked (India-specific)
 
-## Features
+- **Consent** (DPDPA Section 6, IT Act Rule 5.3) — if SPDI fields are present and `spdi_consent` is not true, flagged
+- **Cross-border transfer** (DPDPA Section 16) — if `data_processing_location` or `analytics_vendor` contains a non-India location (AWS, UK, USA, Europe etc.), flagged
+- **Minors' data** (DPDPA Section 9) — if `age < 18`, parental consent required, flagged
+- **KYC** (IT Act Section 43A) — if `kyc_status` is incomplete or failed, flagged
+- **Purpose limitation** (DPDPA Section 4) — if `loan_purpose` is undisclosed, flagged
 
-*   **Governance Agents:**
-    *   `SafetyControlAgent`: Monitors loan data for bias.
-    *   `EthicsAgent`: Evaluates loan criteria against ethical guidelines.
-    *   `ComplianceAgent`: Audits decisions for regulatory compliance using structured outputs.
-    *   `HumanCollaborationAgent`: Facilitates human oversight—flagging cases for later review when needed.
-*   **Prompt Templates:** Dynamically generate prompts using BeeAI’s templating system.
-*   **IBM Granite Integration:** Interact with IBM Granite models for high-quality responses.
-*   **Memory & Workflows:** Retain conversation history and automate multi-step processes.
-*   **ReAct Agents:** Enable intelligent reasoning and adaptive decision-making.
-*   **Modular Architecture:** A clean, scalable, and well-organized code structure.
+## What gets checked (GDPR)
 
-## File Structure
+- **Article 6** — if `lawful_basis_for_processing` is "none" or "none documented", flagged
+- **Article 13/14** — if `privacy_notice_given` is false, flagged
+- **Article 22** — if `human_review_available` is false (automated decision with no human recourse), flagged
 
-```
-
-ai-governance-framework/
-├── README.md            
-├── LICENSE            
-├── requirements.txt    
-├── hackathon\_presentation.md 
-├── .gitignore
-├── docs/
-│   ├── tutorial.md     
-│   └── architecture\_diagram.md 
-       
-└── src/
-├── **init**.py   
-├── auditor.py       
-├── server.py        \# FastAPI server for processing loan application submissions.
-├── agents.py        \# Contains all governance agent implementations.
-├── chat.py           \# ChatModel interactions.
-├── workflows.py     \# Workflow definitions for the loan approval process.
-└── react\_agents.py  \# ReAct agent examples.
-└── client.py        \# Flask web app for submitting loan applications.
-
-````
-
-## Architecture Diagram
-
-```mermaid
-flowchart TD
-    A[User / Client] --> B[Loan Application Interface]
-    B --> X[FastAPI Server]
-    X --> C[Workflow Engine]
-    
-    subgraph Governance & Safety Layer
-        D1[Safety & Control Agent]
-        D2[Ethics & Responsible AI Agent]
-        D3[Compliance Agent]
-        D4[Human-AI Collaboration Agent\nFlags for review]
-    end
-    
-    C --> D[Governance & Safety Layer]
-    D --> D1
-    D --> D2
-    D --> D3
-    D --> D4
-    
-    C --> E[IBM Granite ChatModel]
-    E --> F[Prompt Templates]
-    E --> G[Memory Module]
-    
-    C --> H[ReAct Agent]
-    
-    E --> I[Decision Output]
-    
-    D1 -.-> I
-    D2 -.-> I
-    D3 -.-> I
-    D4 -.-> I
-    H --> E
-    F --> E
-    H --> I
-    
-    I --> Y[Auditor Dashboard]
-````
-
-This diagram illustrates how a user's loan application flows through the system. The FastAPI Server receives submissions from the Client, and the Workflow Engine coordinates interactions between the Governance & Safety Layer (including Safety, Ethics, Compliance, and Human-AI Collaboration Agents), the IBM Granite ChatModel (using prompt templates and memory), and the ReAct Agent. The final decision output is then sent to an Auditor Dashboard for further review if necessary.
+---
 
 ## Prerequisites
 
-  * **Python 3.12+**
-  * **Dependencies:** Install via: `pip install -r requirements.txt`
-  * **BeeAI Framework:** Ensure BeeAI and its dependencies are installed.
-  * **IBM Granite (Ollama Provider):** Set up your environment as per IBM Granite documentation.
-  * **SearXNG (Optional):** For web search integration, ensure a SearXNG instance is running.
+- Python 3.11+
+- Conda or any virtual environment manager
+- A free Groq API key from [console.groq.com](https://console.groq.com)
 
-## Installation
+---
 
- **Clone the Repository:**
-    ```bash
-    git clone [https://github.com/ruslanmv/ai-governance-framework.git](https://github.com/ruslanmv/ai-governance-framework.git)
-    cd ai-governance-framework
-    ```
+## Setup
 
-## Setup Enviroment
-For this project we are going to use python 3.12
-after we have installed anaconda we will do.
-
+**1. Clone the repo**
+```bash
+git clone <your-repo-url>
+cd ai-governance-framework
 ```
-python -m venv .venv
-source .venv/bin/activate  # On macOS/Linux
-.venv\Scripts\activate  # On Windows
+
+**2. Create and activate conda environment**
+```bash
+conda activate rag   # if using the existing rag env
+# OR
+conda create -n governance python=3.11
+conda activate governance
+```
+
+**3. Install the one missing package**
+```bash
+pip install Flask
+```
+Everything else (groq, fastapi, pydantic, uvicorn, python-dotenv) is already in the rag env. If using a fresh env:
+```bash
 pip install -r requirements.txt
 ```
 
-![](assets/2025-02-22-11-50-47.png)
-
-Install Ollama using Homebrew.
-
+**4. Create your .env file**
+```bash
+echo "GROQ_API_KEY=gsk_your_key_here" > src/.env
 ```
-brew install ollama
-```
- You can also download the app directly from Ollama. 
-https://ollama.com/download
+Get your key at [console.groq.com](https://console.groq.com) → API Keys → Create New Key. Free, no credit card needed.
 
-
-Once you’ve installed Ollama, start the server.
-
-Note: & keeps the service running in the background and can be omitted if preferred.
-
-```
-ollama serve &
+**5. Run the portal**
+```bash
+cd src
+python auditor.py
 ```
 
-## Download the models
+Open `http://localhost:5001` in your browser.
 
-Now, let’s download the models. Determining which model to use depends on your needs and what your device can handle. Generally, larger models will produce better results but also require more resources.
-
-In this guide, we’ll fetch both the 2b and 8b models. These are large files and will take some time to download.
-
-
-```
-ollama pull granite3.1-dense:8b
-```
-
-## Run Granite
-
-By default, Ollama runs models with a short context length to avoid preallocating excessive RAM. This can cause long requests to be truncated. To override this when using ollama run, update the num_ctx parameter with /set parameter num_ctx <desired_context_length>. The largest <desired_context_length> supported by Granite 3.1 models is 131072 (128k).
-
-To run the model, type:
-
-```
-ollama run granite3.1-dense:8b
-```
+---
 
 ## Usage
 
-### Server-Side Pipeline:
+### Structured form
+Go to `http://localhost:5001/apply` — fill in the form fields directly. Good for standard submissions.
 
-1.  Run the FastAPI server:
-    ```bash
-    cd src
-    uvicorn server:app --reload
-    ```
+### Raw JSON (for testing specific compliance checks)
+Go to `http://localhost:5001/submit-raw` — paste a JSON object and run the full pipeline.
 
-For the client and auditor we enter to the source directory
-    ```
-    cd src
-    ```
-### Client Portal:
+### Test cases
 
-1.  Launch the Flask client:
-    ```bash
-    python client.py
-    ```
-2.  Submit loan applications through the web interface.
+**Clean application (should pass everything)**
+```json
+{
+  "applicant_id": "CLEAN-001",
+  "demographic": "general",
+  "loan_amount": 300000,
+  "income": 75000,
+  "age": 32,
+  "loan_purpose": "home renovation",
+  "account_number": "HDFC-00123456",
+  "employment_status": "Employed",
+  "credit_score": 720,
+  "spdi_consent": true
+}
+```
 
-### Auditor Dashboard:
+**Triggers DPDPA Section 6 (no consent for SPDI)**
+```json
+{
+  "applicant_id": "CONSENT-FAIL-002",
+  "demographic": "general",
+  "loan_amount": 500000,
+  "income": 90000,
+  "age": 28,
+  "loan_purpose": "business expansion",
+  "account_number": "SBI-00987654",
+  "credit_card_number": "4111-1111-1111-1234",
+  "spdi_consent": false
+}
+```
 
-1.  Run the auditor app:
-    ```bash
-    python auditor.py
-    ```
-2.  Visit `http://localhost:5001` to review and update flagged applications.
+**Triggers DPDPA Section 16 (cross-border transfer)**
+```json
+{
+  "applicant_id": "CROSSBORDER-003",
+  "demographic": "NRI",
+  "loan_amount": 2000000,
+  "income": 200000,
+  "age": 40,
+  "loan_purpose": "property purchase",
+  "account_number": "SBI-NRI-00334455",
+  "data_processing_location": "AWS us-east-1 USA",
+  "analytics_vendor": "Experian UK Ltd",
+  "spdi_consent": true
+}
+```
 
+**Triggers GDPR Article 6 + Article 13**
+```json
+{
+  "applicant_id": "GDPR-ART6-007",
+  "demographic": "general",
+  "loan_amount": 250000,
+  "income": 55000,
+  "age": 27,
+  "loan_purpose": "personal loan",
+  "lawful_basis_for_processing": "none documented",
+  "privacy_notice_given": false,
+  "spdi_consent": true
+}
+```
 
-## Screenshots
+---
 
-### Application Portal
+## Data subject rights endpoints
 
-![Application Portal - Part 1](assets/2025-02-23-00-53-11.png)
+These are available via the FastAPI server (`uvicorn server:app --reload` from `src/`).
 
-![Application Portal - Part 2](assets/2025-02-23-00-54-50.png)
+**Right of access** — GDPR Article 15 + DPDPA Section 12
+```
+GET http://localhost:8000/rights/access/{applicant_id}
+```
 
-### Auditor Dashboard
+**Right to erasure** — GDPR Article 17 + DPDPA Section 13
+```bash
+curl -X POST http://localhost:8000/rights/erasure \
+  -H "Content-Type: application/json" \
+  -d '{"applicant_id": "CLEAN-001", "reason": "Consent withdrawn under DPDPA Section 6.4"}'
+```
 
-![Auditor Dashboard - Part 1](assets/2025-02-23-00-59-11.png)
+---
 
-![Auditor Dashboard - Part 2](assets/2025-02-23-00-59-23.png)
+## File structure
 
-![Auditor Dashboard - Part 3](assets/2025-02-23-00-59-48.png)
+```
+src/
+├── agents.py                    # All 7 agent classes
+├── workflows.py                 # 7-step pipeline
+├── auditor.py                   # Unified Flask portal (port 5001)
+├── server.py                    # FastAPI backend with rights endpoints (port 8000)
+├── chat.py                      # Parses raw submission text
+├── utils.py                     # Save/load loan_decisions.json
+├── india_regulations.txt        # IT Act 2000 + DPDPA 2023 reference (injected into agent prompts)
+├── gdpr_regulations.txt         # GDPR EU 2016/679 reference (injected into agent prompts)
+├── financial_regulations.txt    # Original generic financial regulations
+├── acme_bank_ethics_guidelines.txt  # Bank ethics document
+├── loan_decisions.json          # All processed applications (auto-created)
+├── .env                         # Your GROQ_API_KEY goes here
+└── templates/
+    ├── auditor.html             # Full portal UI
+    └── application.html         # Structured loan form
+```
 
-## Contributing
+---
 
-Contributions are welcome\! Please fork the repository and submit pull requests. For major changes, open an issue first to discuss your ideas.
+## How the compliance checking works
 
-## License
+The India and GDPR agents use a hybrid approach. The LLM reads the full regulation text (injected from the `.txt` files) and classifies fields or reasons about compliance. But the final yes/no violation decision is made by Python conditional checks, not the LLM. This prevents the LLM from hallucinating violations based on missing documentation fields.
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+```python
+# Example: consent check is Python, not LLM
+if spdi_count > 0 and not bool(orig.get("spdi_consent", False)):
+    violated.append("DPDPA Section 6 / IT Act Rule 5.3")
 
-## Acknowledgements
+is_compliant = len(violated) == 0
+```
 
-We gratefully acknowledge our contributors, the BeeAI community, and IBM Granite for the robust tools that made this project possible. Special thanks to everyone who supported this hackathon initiative.
+---
 
-Happy coding and building trustworthy AI systems\!
+## References
 
+1. Original project: [ruslanmv/ai-governance-framework](https://github.com/ruslanmv/ai-governance-framework)
+2. Information Technology Act, 2000 — Ministry of Electronics and IT, Government of India
+3. IT (SPDI) Rules, 2011 — Ministry of Electronics and IT, Government of India
+4. Digital Personal Data Protection Act, 2023 — Ministry of Electronics and IT, Government of India
+5. GDPR EU 2016/679 — European Parliament, Official Journal of the EU
+6. LLaMA 3.3 70B — Meta AI, 2024
+7. Groq API — [console.groq.com/docs](https://console.groq.com/docs)
+
+---
+
+## Course context
+
+Built as part of the **IT Act and Data Protection (ECE-4272)** course at Manipal Institute of Technology, Manipal. The project maps to:
+
+- Unit I §1.1 — Defining personal data, SPDI, non-personal data (DataPrivacyClassifierAgent)
+- Unit II §1.1, §1.3 — IT Act offences, controller duties (ITActDPDPAComplianceAgent)
+- Unit III §1.1–1.5 — Data protection obligations, DPDPA 2023 (ITActDPDPAComplianceAgent)
+- Unit IV §1.1–1.3 — GDPR principles, data subject rights, penalties (GDPRComplianceAgent)
