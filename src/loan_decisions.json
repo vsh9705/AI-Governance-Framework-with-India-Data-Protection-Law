@@ -1,93 +1,47 @@
 [
     {
-        "applicant_id": "2024-XY-789",
-        "demographic": "group_B",
+        "applicant_id": "2023-VG-001+2026-03-27-04-58",
+        "demographic": "general",
+        "loan_amount": 2000000.0,
+        "income": 200000.0,
+        "age": 28,
+        "loan_purpose": "Starting a business in Underserved Community",
         "loan_status": "pending",
-        "risk_flag": "No bias for: group_B",
+        "risk_flag": "Bias likely for: general",
+        "description": "Seeking a substantial loan to launch a new retail business in a historically underserved community. This venture aims to create local jobs and stimulate economic growth in an area with limited opportunities.",
+        "credit_score": 620,
+        "employment_status": "Self-employed",
         "loan_criteria": [
-            "Standard Risk Assessment",
-            "Income Verification"
+            "Limited Credit History Accepted",
+            "Personal Network Referral Required",
+            "High Interest Rate Tier",
+            "Geographic Zone Restriction: Zone 4",
+            "Marital Status: Single applicants not preferred"
         ],
-        "ethics_review": {
-            "ethical": true,
-            "reasons": []
+        "spdi_consent": true,
+        "privacy_classification": {
+            "spdi_count": 0,
+            "consent_required": false,
+            "dpia_required": false,
+            "field_classes": {
+                "applicant_id": "NON_PERSONAL_DATA",
+                "demographic": "PERSONAL_DATA",
+                "loan_amount": "PERSONAL_DATA",
+                "income": "PERSONAL_DATA",
+                "age": "PERSONAL_DATA",
+                "loan_purpose": "PERSONAL_DATA",
+                "description": "NON_PERSONAL_DATA",
+                "credit_score": "PERSONAL_DATA",
+                "employment_status": "PERSONAL_DATA",
+                "loan_criteria": "NON_PERSONAL_DATA",
+                "spdi_consent": "NON_PERSONAL_DATA"
+            }
         },
-        "compliance_report": {
-            "is_compliant": false,
-            "non_compliant_regulations": [
-                "Consumer Protection Law - Regulation CF123: Rule 1.1",
-                "Consumer Protection Law - Regulation CF123: Rule 1.5"
-            ],
+        "ethics_review": {
+            "ethical": false,
             "reasons": [
-                "Rule 1.1 Violation: The loan decision data does not include the total amount borrowed, interest rate, repayment schedule, and any other relevant terms in the provided information.",
-                "Rule 1.5 Violation: No information is available regarding the protection of consumer's personal and financial information or the diligent application of data privacy laws and regulations."
+                "UNETHICAL: The loan criteria include \"Marital Status: Single applicants not preferred\", which violates the guideline of treating customers fairly and without discrimination, as stated in Section I, \"Treat Customers Fairly\" and implicitly in \"Fair Labor Practices\" in Section IV."
             ]
-        },
-        "final_decision": "approved"
-    },
-    {
-        "applicant_id": "2023-VG-001",
-        "demographic": "group_Z_minority",
-        "loan_status": "pending",
-        "risk_flag": "Bias likely for: group_Z_minority\n\nExplanation: The loan criteria, particularly the high interest rate tier and marital status preference against single applicants, may disproportionately affect members of the group Z minority. This is because such criteria can perpetuate existing socio-economic disparities and limit opportunities for minority groups who may already face barriers in accessing capital. The geographic zone restriction further compounds these potential biases, as it could limit the applicant's options to find a suitable location for their business within Zone 4. While the lender considers various factors to assess borrower risk, these criteria might unintentionally create obstacles for minority groups, leading to a likelihood of bias in this case.",
-        "loan_criteria": [
-            "Standard Risk Assessment",
-            "Income Verification"
-        ],
-        "ethics_review": {
-            "ethical": true,
-            "reasons": []
-        },
-        "compliance_report": {
-            "is_compliant": false,
-            "non_compliant_regulations": [
-                "Anti-Discrimination Act - Regulation ADA456"
-            ],
-            "reasons": [
-                "The loan decision indicates a 'discriminatory criterion' which violates Rule 2.1 of the Anti-Discrimination Act (ADA456). This rule prohibits lending institutions from using criteria that have a disparate impact on protected groups, directly or indirectly, based on characteristics such as race, color, religion, national origin, sex, marital status, age, or receipt of public assistance. The specific criterion used for this loan decision (Standard Risk Assessment) may inadvertently lead to unfair treatment of individuals belonging to protected groups."
-            ]
-        },
-        "final_decision": "rejected",
-        "auditor_comments": ""
-    },
-    {
-        "applicant_id": "2024-XY-789+2025-02-23-00-18",
-        "demographic": "group_B",
-        "loan_status": "pending",
-        "risk_flag": "No bias for: group_B\n\nExplanation: The applicant's high credit score (780), stable employment history, and reasonable loan amount for home renovations suggest a strong likelihood of approval. The purpose of the loan, which is energy-efficient home improvements, could even make this application more appealing to lenders due to potential cost savings in the long term. Therefore, based on the provided information, there appears to be no bias against demographic group B.",
-        "loan_criteria": [
-            "Standard Risk Assessment",
-            "Income Verification"
-        ],
-        "ethics_review": {
-            "ethical": true,
-            "reasons": []
-        },
-        "compliance_report": {
-            "is_compliant": false,
-            "non_compliant_regulations": [
-                "Consumer Protection Law - Regulation CF123",
-                "Anti-Discrimination Act - Regulation ADA456"
-            ],
-            "reasons": [
-                "Non-compliance with Consumer Protection Law - Regulation CF123, Rule 1.1: The loan decision does not provide clear and understandable loan terms and conditions before approval. The reason for the decision was not documented in the provided data.",
-                "Non-compliance with Anti-Discrimination Act - Regulation ADA456, Rule 2.1: There is no information on unbiased loan application processes or whether protected characteristics were considered during the decision-making process. No details about staff training or ongoing monitoring of lending practices were provided."
-            ]
-        },
-        "final_decision": "approved"
-    },
-    {
-        "applicant_id": "2023-VG-001+2025-02-23-00-20",
-        "demographic": "group_Z_minority",
-        "loan_status": "pending",
-        "risk_flag": "Bias likely for: group_Z_minority",
-        "loan_criteria": [
-            "Standard Risk Assessment",
-            "Income Verification"
-        ],
-        "ethics_review": {
-            "ethical": true,
-            "reasons": []
         },
         "compliance_report": {
             "is_compliant": false,
@@ -95,48 +49,68 @@
                 "Anti-Discrimination Act - Regulation ADA456"
             ],
             "reasons": [
-                "The loan decision was marked as requiring further review due to a discriminatory criterion. This suggests a violation of Rule 2.1 of the Anti-Discrimination Act (ADA456), which prohibits using loan criteria that have a disparate impact on protected groups without clear justification and no less discriminatory alternatives."
+                "The decision criteria include 'Marital Status: Single applicants not preferred', which directly discriminates against applicants based on their marital status, a protected characteristic."
             ]
         },
-        "final_decision": "rejected",
-        "auditor_comments": ""
-    },
-    {
-        "applicant_id": "2023-VG-001+2025-02-23-00-23",
-        "demographic": "group_Z_minority",
-        "loan_status": "pending",
-        "risk_flag": "Bias likely for: group_Z_minority. The high interest rate tier, coupled with the preference against single marital status, could potentially disadvantage this demographic group. While other factors like strong annual income and positive social impact can mitigate these concerns, it is still indicative of potential bias.",
-        "loan_criteria": [
-            "Standard Risk Assessment",
-            "Income Verification"
-        ],
-        "ethics_review": {
-            "ethical": true,
-            "reasons": []
+        "india_compliance_report": {
+            "is_compliant": true,
+            "violated_sections": [],
+            "reasons": [],
+            "cross_border_risk": false,
+            "children_data_risk": false
         },
-        "compliance_report": {
-            "is_compliant": false,
-            "non_compliant_regulations": [
-                "Anti-Discrimination Act - Regulation ADA456"
-            ],
-            "reasons": [
-                "The loan decision indicates that a 'discriminatory criterion' was used in the Standard Risk Assessment. This practice violates Rule 2.1 of the Anti-Discrimination Act, as it involves direct discrimination based on protected characteristics."
-            ]
+        "gdpr_compliance_report": {
+            "is_compliant": true,
+            "violated_articles": [],
+            "reasons": [],
+            "automated_decision_risk": false,
+            "right_to_be_forgotten_applicable": false,
+            "lawful_basis_documented": true
         },
         "final_decision": "requires further review"
     },
     {
-        "applicant_id": "2023-VG-001+2025-02-23-00-24",
-        "demographic": "group_Z_minority",
+        "applicant_id": "APP-RISK-005",
+        "demographic": "general",
+        "loan_amount": 5000000,
+        "income": 50000,
+        "age": 45,
+        "loan_purpose": "undisclosed",
         "loan_status": "pending",
-        "risk_flag": "Bias likely for: group_Z_minority",
+        "risk_flag": "No bias for: general",
+        "account_number": "AXIS-00111222",
+        "previous_fraud_flag": true,
+        "cash_transactions_last_month": 980000,
+        "kyc_status": "incomplete",
+        "pep_status": "politically_exposed_person",
         "loan_criteria": [
             "Standard Risk Assessment",
             "Income Verification"
         ],
+        "privacy_classification": {
+            "spdi_count": 1,
+            "consent_required": true,
+            "dpia_required": false,
+            "field_classes": {
+                "applicant_id": "NON_PERSONAL_DATA",
+                "demographic": "PERSONAL_DATA",
+                "loan_amount": "PERSONAL_DATA",
+                "income": "PERSONAL_DATA",
+                "age": "PERSONAL_DATA",
+                "loan_purpose": "PERSONAL_DATA",
+                "account_number": "SENSITIVE_PERSONAL_DATA",
+                "previous_fraud_flag": "NON_PERSONAL_DATA",
+                "cash_transactions_last_month": "PERSONAL_DATA",
+                "kyc_status": "NON_PERSONAL_DATA",
+                "pep_status": "PERSONAL_DATA",
+                "loan_criteria": "NON_PERSONAL_DATA"
+            }
+        },
         "ethics_review": {
-            "ethical": true,
-            "reasons": []
+            "ethical": false,
+            "reasons": [
+                "UNETHICAL: The loan purpose is \"undisclosed\", which violates the guideline of transparency and fair practices as stated in Section I, Customer Centricity and Fair Practices, specifically the principle of treating customers fairly by providing clear and understandable information about loan purposes."
+            ]
         },
         "compliance_report": {
             "is_compliant": false,
@@ -144,134 +118,255 @@
                 "Anti-Discrimination Act - Regulation ADA456"
             ],
             "reasons": [
-                "The loan decision indicates a reason of 'discriminatory criterion', suggesting that the lending criteria or algorithm used may have a disparate impact on protected groups. This violates Rule 2.2 of the Anti-Discrimination Act - Regulation ADA456, which prohibits using loan criteria or algorithms with a disparate impact without clear justification and business necessity."
+                "The decision reason explicitly mentions 'discriminatory_criterion', which directly violates the Anti-Discrimination Act by indicating the use of potentially biased criteria in the loan decision process."
             ]
         },
-        "final_decision": "rejected",
-        "auditor_comments": ""
-    },
-    {
-        "applicant_id": "2024-XY-789+2025-02-23-00-35",
-        "demographic": "group_B",
-        "loan_status": "pending",
-        "risk_flag": "No bias for: group_B. The applicant's credit score, income, employment status, and debt-to-income ratio all suggest excellent creditworthiness and a strong capacity to repay the loan. The purpose of the loan is also clear and well thought out. Therefore, there does not appear to be any potential bias against this demographic group in this application.",
-        "loan_criteria": [
-            "Standard Risk Assessment",
-            "Income Verification"
-        ],
-        "ethics_review": {
-            "ethical": true,
-            "reasons": []
-        },
-        "compliance_report": {
+        "india_compliance_report": {
             "is_compliant": false,
-            "non_compliant_regulations": [
-                "Consumer Protection Law - Regulation CF123",
-                "Anti-Discrimination Act - Regulation ADA456"
+            "violated_sections": [
+                "DPDPA Section 6 / IT Act Rule 5.3",
+                "IT Act Section 43A / BSA Rule 3.1",
+                "DPDPA Section 4"
             ],
             "reasons": [
-                "The loan decision lacks a detailed explanation of the loan terms and conditions, violating Rule 1.1 of Consumer Protection Law - Regulation CF123. No information on the total amount borrowed, interest rate, repayment schedule, or other relevant terms is provided.",
-                "There is no disclosure of fees and charges associated with the loan, contravening Rule 1.2 of Consumer Protection Law - Regulation CF123.",
-                "The absence of an evaluation of the applicant's ability to repay the loan, as per Rule 1.3 of Consumer Protection Law - Regulation CF123, suggests potential predatory lending practices. No information is given about the assessment of the consumer's financial situation or creditworthiness.",
-                "The loan decision process does not detail any procedures for resolving disputes or complaints related to the loan, violating Rule 1.4 of Consumer Protection Law - Regulation CF123.",
-                "No explicit mention of non-discriminatory practices is made in the loan criteria and algorithm used (Standard Risk Assessment), which might indirectly lead to a disparate impact on protected groups under Rule 2.2 of Anti-Discrimination Act - Regulation ADA456."
-            ]
-        },
-        "final_decision": "approved"
-    },
-    {
-        "applicant_id": "2024-XY-789+2025-02-23-00-42",
-        "demographic": "group_B",
-        "loan_status": "pending",
-        "risk_flag": "No bias for: group_B",
-        "loan_criteria": [
-            "Standard Risk Assessment",
-            "Income Verification"
-        ],
-        "ethics_review": {
-            "ethical": true,
-            "reasons": []
-        },
-        "compliance_report": {
-            "is_compliant": false,
-            "non_compliant_regulations": [
-                "Consumer Protection Law - Regulation CF123: Rule 1.5 (Data Privacy)",
-                "Anti-Discrimination Act - Regulation ADA456: Rule 2.4 (Ongoing Monitoring)"
+                "Application contains 1 SPDI field(s) but spdi_consent is not true.",
+                "KYC status is 'incomplete'.",
+                "Loan purpose is undisclosed \u2014 no lawful purpose established."
             ],
-            "reasons": [
-                "The provided loan decision data does not include any information regarding the protection of personal and financial information or ongoing monitoring for signs of discrimination, which are mandatory under Rules 1.5 and 2.4 respectively.",
-                "While income verification is a standard practice in risk assessment, it alone does not satisfy the requirement to assess the consumer's ability to repay the loan as per Rule 1.3."
-            ]
+            "cross_border_risk": false,
+            "children_data_risk": false
         },
-        "final_decision": "approved"
-    },
-    {
-        "applicant_id": "2024-XY-789+2025-02-23-00-43",
-        "demographic": "group_B",
-        "loan_status": "pending",
-        "risk_flag": "No bias for: group_B",
-        "loan_criteria": [
-            "Standard Risk Assessment",
-            "Income Verification"
-        ],
-        "ethics_review": {
-            "ethical": true,
-            "reasons": []
-        },
-        "compliance_report": {
-            "is_compliant": false,
-            "non_compliant_regulations": [
-                "Consumer Protection Law - Regulation CF123",
-                "Anti-Discrimination Act - Regulation ADA456",
-                "Truth in Lending Act - Regulation TILA101"
-            ],
-            "reasons": [
-                "The loan decision lacks detailed information on the loan terms, interest rate, repayment schedule, and any associated fees or charges (Consumer Protection Law - Regulation CF123, Rule 1.1 & 1.2).",
-                "There is no evidence of a thorough assessment of the applicant's ability to repay the loan before approval (Consumer Protection Law - Regulation CF123, Rule 1.3).",
-                "No information on the application process or criteria used for decision-making suggests potential indirect discrimination based on protected characteristics (Anti-Discrimination Act - Regulation ADA456, Rule 2.1 & 2.2).",
-                "The loan decision does not include a comprehensive loan cost estimate with all finance charges, as required by Truth in Lending Act - Regulation TILA101, Rule 4.2."
-            ]
-        },
-        "final_decision": "approved"
-    },
-    {
-        "applicant_id": "2023-VG-001+2025-02-23-00-44",
-        "demographic": "group_Z_minority",
-        "loan_status": "pending",
-        "risk_flag": "Bias likely for: group_Z_minority (Minority)\n\nExplanation: The loan criteria such as Geographic Zone Restriction (Zone 4) and Marital Status Preference (single applicants not preferred) could disproportionately affect minority groups, including those in group_Z_minority. These restrictions may limit access to capital for underserved communities, thereby perpetuating existing economic inequalities. Additionally, the preference for personal network referrals might unintentionally favor applicants connected to individuals within the lender's network who share similar demographic characteristics, potentially disadvantaging minority group_Z members.",
-        "loan_criteria": [
-            "Standard Risk Assessment",
-            "Income Verification"
-        ],
-        "ethics_review": {
-            "ethical": true,
-            "reasons": []
-        },
-        "compliance_report": {
-            "is_compliant": false,
-            "non_compliant_regulations": [
-                "Anti-Discrimination Act - Regulation ADA456"
-            ],
-            "reasons": [
-                "The loan decision was marked as requiring further review due to a potentially discriminatory criterion. This is a violation of Rule 2.1, which mandates that loan application processes must be unbiased and not discriminate against any individual or group based on protected characteristics.",
-                "Furthermore, the criteria used for this decision, 'Standard Risk Assessment' and 'Income Verification', could potentially have a disparate impact on protected groups. Rule 2.2 cautions against using loan criteria or algorithms that, while seemingly neutral, may indirectly result in discrimination. If these criteria do have a disparate impact, it must be demonstrably justified by a clear business necessity and no less discriminatory alternatives should exist.",
-                "Additionally, the decision was marked as requiring further review due to concerns of potential discrimination (Rule 2.1 violation). This suggests that there might not be thorough documentation and justification for every loan decision, especially those involving rejection or less favorable terms (Rule 2.5 violation)."
-            ]
+        "gdpr_compliance_report": {
+            "is_compliant": true,
+            "violated_articles": [],
+            "reasons": [],
+            "automated_decision_risk": false,
+            "right_to_be_forgotten_applicable": false,
+            "lawful_basis_documented": true
         },
         "final_decision": "requires further review"
     },
     {
-        "applicant_id": "2023-VG-001+2025-02-23-00-49",
-        "demographic": "group_Z_minority",
+        "applicant_id": "APP-NORMAL-001",
+        "demographic": "general",
+        "loan_amount": 300000,
+        "income": 75000,
+        "age": 32,
+        "loan_purpose": "home renovation",
         "loan_status": "pending",
-        "risk_flag": "Bias likely for: group_Z_minority",
+        "risk_flag": "No bias for: general",
+        "account_number": "HDFC-00123456",
+        "employment_status": "salaried",
+        "credit_score": 720,
         "loan_criteria": [
             "Standard Risk Assessment",
             "Income Verification"
         ],
+        "privacy_classification": {
+            "spdi_count": 1,
+            "consent_required": true,
+            "dpia_required": false,
+            "field_classes": {
+                "applicant_id": "NON_PERSONAL_DATA",
+                "demographic": "PERSONAL_DATA",
+                "loan_amount": "PERSONAL_DATA",
+                "income": "PERSONAL_DATA",
+                "age": "PERSONAL_DATA",
+                "loan_purpose": "PERSONAL_DATA",
+                "account_number": "SENSITIVE_PERSONAL_DATA",
+                "employment_status": "PERSONAL_DATA",
+                "credit_score": "PERSONAL_DATA",
+                "loan_criteria": "NON_PERSONAL_DATA"
+            }
+        },
         "ethics_review": {
             "ethical": true,
             "reasons": []
+        },
+        "compliance_report": {
+            "is_compliant": true,
+            "non_compliant_regulations": [],
+            "reasons": []
+        },
+        "india_compliance_report": {
+            "is_compliant": false,
+            "violated_sections": [
+                "DPDPA Section 6 / IT Act Rule 5.3"
+            ],
+            "reasons": [
+                "Application contains 1 SPDI field(s) but spdi_consent is not true."
+            ],
+            "cross_border_risk": false,
+            "children_data_risk": false
+        },
+        "gdpr_compliance_report": {
+            "is_compliant": true,
+            "violated_articles": [],
+            "reasons": [],
+            "automated_decision_risk": false,
+            "right_to_be_forgotten_applicable": false,
+            "lawful_basis_documented": true
+        },
+        "final_decision": "requires further review"
+    },
+    {
+        "applicant_id": "APP-NORMAL-001",
+        "demographic": "general",
+        "loan_amount": 300000,
+        "income": 75000,
+        "age": 32,
+        "loan_purpose": "home renovation",
+        "loan_status": "pending",
+        "risk_flag": "No bias for: general",
+        "raw_text": "{\r\n  \"applicant_id\": \"APP-NORMAL-001\",\r\n  \"demographic\": \"general\",\r\n  \"loan_amount\": 300000,\r\n  \"income\": 75000,\r\n  \"age\": 32,\r\n  \"loan_purpose\": \"home renovation\",\r\n  \"account_number\": \"HDFC-00123456\",\r\n  \"employment_status\": \"salaried\",\r\n  \"credit_score\": 720\r\n\"spdi_consent\": true\r\n}",
+        "loan_criteria": [
+            "Standard Risk Assessment",
+            "Income Verification"
+        ],
+        "privacy_classification": {
+            "spdi_count": 0,
+            "consent_required": false,
+            "dpia_required": false,
+            "field_classes": {
+                "applicant_id": "NON_PERSONAL_DATA",
+                "demographic": "PERSONAL_DATA",
+                "loan_amount": "PERSONAL_DATA",
+                "income": "PERSONAL_DATA",
+                "age": "PERSONAL_DATA",
+                "loan_purpose": "PERSONAL_DATA",
+                "raw_text": "NON_PERSONAL_DATA",
+                "loan_criteria": "NON_PERSONAL_DATA"
+            }
+        },
+        "ethics_review": {
+            "ethical": true,
+            "reasons": []
+        },
+        "compliance_report": {
+            "is_compliant": true,
+            "non_compliant_regulations": [],
+            "reasons": []
+        },
+        "india_compliance_report": {
+            "is_compliant": true,
+            "violated_sections": [],
+            "reasons": [],
+            "cross_border_risk": false,
+            "children_data_risk": false
+        },
+        "gdpr_compliance_report": {
+            "is_compliant": true,
+            "violated_articles": [],
+            "reasons": [],
+            "automated_decision_risk": false,
+            "right_to_be_forgotten_applicable": false,
+            "lawful_basis_documented": true
+        },
+        "final_decision": "approved"
+    },
+    {
+        "applicant_id": "APP-NORMAL-444",
+        "demographic": "general",
+        "loan_amount": 300000,
+        "income": 75000,
+        "age": 32,
+        "loan_purpose": "home renovation",
+        "loan_status": "pending",
+        "risk_flag": "No bias for: general",
+        "account_number": "HDFC-00123456",
+        "employment_status": "salaried",
+        "credit_score": 720,
+        "spdi_consent": true,
+        "loan_criteria": [
+            "Standard Risk Assessment",
+            "Income Verification"
+        ],
+        "privacy_classification": {
+            "spdi_count": 1,
+            "consent_required": false,
+            "dpia_required": false,
+            "field_classes": {
+                "applicant_id": "NON_PERSONAL_DATA",
+                "demographic": "PERSONAL_DATA",
+                "loan_amount": "PERSONAL_DATA",
+                "income": "PERSONAL_DATA",
+                "age": "PERSONAL_DATA",
+                "loan_purpose": "PERSONAL_DATA",
+                "account_number": "SENSITIVE_PERSONAL_DATA",
+                "employment_status": "PERSONAL_DATA",
+                "credit_score": "PERSONAL_DATA",
+                "spdi_consent": "NON_PERSONAL_DATA",
+                "loan_criteria": "NON_PERSONAL_DATA"
+            }
+        },
+        "ethics_review": {
+            "ethical": true,
+            "reasons": []
+        },
+        "compliance_report": {
+            "is_compliant": true,
+            "non_compliant_regulations": [],
+            "reasons": []
+        },
+        "india_compliance_report": {
+            "is_compliant": true,
+            "violated_sections": [],
+            "reasons": [],
+            "cross_border_risk": false,
+            "children_data_risk": false
+        },
+        "gdpr_compliance_report": {
+            "is_compliant": true,
+            "violated_articles": [],
+            "reasons": [],
+            "automated_decision_risk": false,
+            "right_to_be_forgotten_applicable": false,
+            "lawful_basis_documented": true
+        },
+        "final_decision": "approved"
+    },
+    {
+        "applicant_id": "GDPR-FAIL-001",
+        "demographic": "general",
+        "loan_amount": 400000,
+        "income": 60000,
+        "age": 30,
+        "loan_purpose": "vehicle purchase",
+        "loan_status": "pending",
+        "risk_flag": "No bias for: general",
+        "account_number": "HDFC-00123456",
+        "human_review_available": false,
+        "lawful_basis_for_processing": "none documented",
+        "privacy_notice_given": false,
+        "spdi_consent": true,
+        "loan_criteria": [
+            "Standard Risk Assessment",
+            "Income Verification"
+        ],
+        "privacy_classification": {
+            "spdi_count": 1,
+            "consent_required": false,
+            "dpia_required": false,
+            "field_classes": {
+                "applicant_id": "PERSONAL_DATA",
+                "demographic": "PERSONAL_DATA",
+                "loan_amount": "PERSONAL_DATA",
+                "income": "PERSONAL_DATA",
+                "age": "PERSONAL_DATA",
+                "loan_purpose": "PERSONAL_DATA",
+                "account_number": "SENSITIVE_PERSONAL_DATA",
+                "human_review_available": "NON_PERSONAL_DATA",
+                "lawful_basis_for_processing": "NON_PERSONAL_DATA",
+                "privacy_notice_given": "NON_PERSONAL_DATA",
+                "spdi_consent": "NON_PERSONAL_DATA",
+                "loan_criteria": "NON_PERSONAL_DATA"
+            }
+        },
+        "ethics_review": {
+            "ethical": false,
+            "reasons": [
+                "UNETHICAL: The loan application lacks transparency and fairness, as indicated by the absence of a lawful basis for processing and a privacy notice, which violates the guidelines on Customer Centricity and Fair Practices, specifically the principle of treating customers fairly and providing clear, accurate, and understandable information."
+            ]
         },
         "compliance_report": {
             "is_compliant": false,
@@ -279,8 +374,189 @@
                 "Anti-Discrimination Act - Regulation ADA456"
             ],
             "reasons": [
-                "The loan decision indicates that the applicant was rejected based on a 'discriminatory criterion'. This violates Rule 2.1 of the Anti-Discrimination Act, which prohibits discrimination in lending based on protected characteristics."
+                "The decision reason 'discriminatory_criterion' suggests that the loan decision may be based on a criterion that discriminates against the applicant, which is prohibited by the Anti-Discrimination Act."
             ]
+        },
+        "india_compliance_report": {
+            "is_compliant": true,
+            "violated_sections": [],
+            "reasons": [],
+            "cross_border_risk": false,
+            "children_data_risk": false
+        },
+        "gdpr_compliance_report": {
+            "is_compliant": false,
+            "violated_articles": [
+                "Article 22",
+                "Article 6",
+                "Article 13/14"
+            ],
+            "reasons": [
+                "Loan decision is fully automated with no human review option.",
+                "lawful_basis_for_processing is set to 'none documented'.",
+                "privacy_notice_given is explicitly false."
+            ],
+            "automated_decision_risk": true,
+            "right_to_be_forgotten_applicable": false,
+            "lawful_basis_documented": false
+        },
+        "final_decision": "requires further review"
+    },
+    {
+        "applicant_id": "APP-RISK-005",
+        "demographic": "general",
+        "loan_amount": 5000000,
+        "income": 50000,
+        "age": 45,
+        "loan_purpose": "undisclosed",
+        "loan_status": "pending",
+        "risk_flag": "No bias for: general",
+        "account_number": "AXIS-00111222",
+        "previous_fraud_flag": true,
+        "cash_transactions_last_month": 980000,
+        "kyc_status": "incomplete",
+        "pep_status": "politically_exposed_person",
+        "loan_criteria": [
+            "Standard Risk Assessment",
+            "Income Verification"
+        ],
+        "privacy_classification": {
+            "spdi_count": 1,
+            "consent_required": true,
+            "dpia_required": false,
+            "field_classes": {
+                "applicant_id": "NON_PERSONAL_DATA",
+                "demographic": "PERSONAL_DATA",
+                "loan_amount": "PERSONAL_DATA",
+                "income": "PERSONAL_DATA",
+                "age": "PERSONAL_DATA",
+                "loan_purpose": "PERSONAL_DATA",
+                "account_number": "SENSITIVE_PERSONAL_DATA",
+                "previous_fraud_flag": "NON_PERSONAL_DATA",
+                "cash_transactions_last_month": "PERSONAL_DATA",
+                "kyc_status": "NON_PERSONAL_DATA",
+                "pep_status": "PERSONAL_DATA",
+                "loan_criteria": "NON_PERSONAL_DATA"
+            }
+        },
+        "ethics_review": {
+            "ethical": false,
+            "reasons": [
+                "UNETHICAL: The loan purpose is \"undisclosed\", which violates the guideline of transparency and fair practices as stated in Section I, \"Customer Centricity and Fair Practices\", specifically the principle of providing clear, accurate, and understandable information about loan purposes."
+            ]
+        },
+        "compliance_report": {
+            "is_compliant": false,
+            "non_compliant_regulations": [
+                "Anti-Discrimination Act - Regulation ADA456"
+            ],
+            "reasons": [
+                "The decision reason explicitly mentions 'discriminatory_criterion', which directly violates the Anti-Discrimination Act by indicating the use of potentially biased criteria in the loan decision-making process."
+            ]
+        },
+        "india_compliance_report": {
+            "is_compliant": false,
+            "violated_sections": [
+                "DPDPA Section 6 / IT Act Rule 5.3",
+                "IT Act Section 43A / BSA Rule 3.1",
+                "DPDPA Section 4"
+            ],
+            "reasons": [
+                "Application contains 1 SPDI field(s) but spdi_consent is not true.",
+                "KYC status is 'incomplete'.",
+                "Loan purpose is undisclosed \u2014 no lawful purpose established."
+            ],
+            "cross_border_risk": false,
+            "children_data_risk": false
+        },
+        "gdpr_compliance_report": {
+            "is_compliant": false,
+            "violated_articles": [
+                "Error during GDPR check"
+            ],
+            "reasons": [
+                "Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01k4axkdw4f8brgx1y8hhdx2mq` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98466, Requested 2399. Please try again in 12m27.36s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+            ],
+            "automated_decision_risk": false,
+            "right_to_be_forgotten_applicable": false,
+            "lawful_basis_documented": true
+        },
+        "final_decision": "requires further review"
+    },
+    {
+        "applicant_id": "APP-RISK-005",
+        "demographic": "general",
+        "loan_amount": 5000000,
+        "income": 50000,
+        "age": 45,
+        "loan_purpose": "undisclosed",
+        "loan_status": "pending",
+        "risk_flag": "No bias for: general",
+        "account_number": "AXIS-00111222",
+        "previous_fraud_flag": true,
+        "cash_transactions_last_month": 980000,
+        "kyc_status": "incomplete",
+        "pep_status": "politically_exposed_person",
+        "loan_criteria": [
+            "Standard Risk Assessment",
+            "Income Verification"
+        ],
+        "privacy_classification": {
+            "spdi_count": 1,
+            "consent_required": true,
+            "dpia_required": false,
+            "field_classes": {
+                "applicant_id": "NON_PERSONAL_DATA",
+                "demographic": "PERSONAL_DATA",
+                "loan_amount": "PERSONAL_DATA",
+                "income": "PERSONAL_DATA",
+                "age": "PERSONAL_DATA",
+                "loan_purpose": "PERSONAL_DATA",
+                "account_number": "SENSITIVE_PERSONAL_DATA",
+                "previous_fraud_flag": "NON_PERSONAL_DATA",
+                "cash_transactions_last_month": "PERSONAL_DATA",
+                "kyc_status": "NON_PERSONAL_DATA",
+                "pep_status": "PERSONAL_DATA",
+                "loan_criteria": "NON_PERSONAL_DATA"
+            }
+        },
+        "ethics_review": {
+            "ethical": false,
+            "reasons": [
+                "Error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01k4axkdw4f8brgx1y8hhdx2mq` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99033, Requested 1577. Please try again in 8m47.04s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+            ]
+        },
+        "compliance_report": {
+            "is_compliant": false,
+            "non_compliant_regulations": [
+                "Error"
+            ],
+            "reasons": [
+                "Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01k4axkdw4f8brgx1y8hhdx2mq` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99033, Requested 1230. Please try again in 3m47.232s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+            ]
+        },
+        "india_compliance_report": {
+            "is_compliant": false,
+            "violated_sections": [
+                "Error during India compliance check"
+            ],
+            "reasons": [
+                "Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01k4axkdw4f8brgx1y8hhdx2mq` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99033, Requested 2499. Please try again in 22m3.648s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+            ],
+            "cross_border_risk": false,
+            "children_data_risk": false
+        },
+        "gdpr_compliance_report": {
+            "is_compliant": false,
+            "violated_articles": [
+                "Error during GDPR check"
+            ],
+            "reasons": [
+                "Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01k4axkdw4f8brgx1y8hhdx2mq` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99033, Requested 2346. Please try again in 19m51.456s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+            ],
+            "automated_decision_risk": false,
+            "right_to_be_forgotten_applicable": false,
+            "lawful_basis_documented": true
         },
         "final_decision": "requires further review"
     }

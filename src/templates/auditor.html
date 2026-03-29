@@ -1,204 +1,482 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acme Bank Auditor Portal</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #e0f7fa; /* Light Cyan background */
-            color: #004d40; /* Teal Darken-3 text color */
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .container {
-            background-color: #ffffff; /* White container background */
-            padding: 40px;
-            border-radius: 12px; /* Rounded corners */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Softer shadow */
-            width: 700px;
-            max-width: 95%;
-            box-sizing: border-box;
-        }
-        h2 {
-            text-align: center;
-            color: #00796b; /* Teal color for heading */
-            margin-bottom: 25px;
-            font-weight: bold;
-            font-size: 2.2em;
-        }
-        h3 {
-            text-align: center;
-            color: #0056b3; /* Dark blue for subheadings */
-            margin-bottom: 20px;
-        }
-        label {
-            font-weight: 600; /* Semi-bold label */
-            display: block;
-            margin-top: 20px;
-            color: #26a69a; /* Teal Lighten-1 label color */
-        }
-        input[type="text"],
-        input[type="number"],
-        textarea,
-        select {
-            width: 100%;
-            padding: 12px;
-            margin-top: 8px;
-            border: 1px solid #b2dfdb; /* Teal Lighten-4 border */
-            border-radius: 6px;
-            box-sizing: border-box;
-            font-size: 1em;
-            color: #37474f; /* Blue Grey Darken-3 text input color */
-            transition: border-color 0.3s ease;
-        }
-        input[type="text"]:focus,
-        input[type="number"]:focus,
-        textarea:focus,
-        select:focus {
-            border-color: #00bfa5; /* Teal Accent-4 focus border */
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(0, 191, 165, 0.2); /* Focus ring */
-        }
-        textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-        input[type="submit"] {
-            background-color: #009688; /* Teal color for buttons */
-            color: white;
-            border: none;
-            padding: 14px 24px;
-            border-radius: 6px;
-            cursor: pointer;
-            margin-top: 30px;
-            width: 100%;
-            font-size: 1.1em;
-            font-weight: 500;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-        input[type="submit"]:hover {
-            background-color: #00796b; /* Darker Teal on hover */
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
-        }
-        .flash {
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 6px;
-        }
-        .flash.success {
-            background-color: #d4edda; /* Green success flash */
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-        .flash.error {
-            background-color: #f8d7da; /* Red error flash */
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-        .flash.warning {
-            background-color: #ffe0b2; /* Light Orange background for warning */
-            color: #ff6f00;
-            border: 1px solid #ffb300;
-        }
-        .form-buttons {
-            display: flex;
-            justify-content: center;
-        }
-        .form-buttons input[type="submit"] {
-            width: 100%;
-            margin-top: 20px;
-        }
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-        li {
-            margin-bottom: 10px;
-            padding: 10px;
-            background-color: #f8f9fa;
-            border: 1px solid #ced4da;
-            border-radius: 6px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acme Bank — AI Governance Portal</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#e8f5e9;min-height:100vh}
+nav{background:linear-gradient(135deg,#004d40,#1565c0);color:#fff;padding:13px 28px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+nav .brand{font-size:1.1em;font-weight:700;margin-right:16px;white-space:nowrap}
+nav a{color:rgba(255,255,255,.82);text-decoration:none;font-size:.87em;padding:5px 12px;border-radius:14px;transition:background .18s;white-space:nowrap}
+nav a:hover,.nav-active{background:rgba(255,255,255,.2)!important;color:#fff!important}
+.law-tag{font-size:.7em;background:rgba(255,255,255,.14);border-radius:10px;padding:3px 9px;margin-left:auto;white-space:nowrap}
+.main{max-width:1050px;margin:24px auto;padding:0 14px}
+.card{background:#fff;border-radius:11px;box-shadow:0 3px 16px rgba(0,0,0,.08);padding:26px 30px;margin-bottom:20px}
+h2{color:#00695c;font-size:1.45em;margin-bottom:4px}
+h3{color:#1565c0;font-size:1.1em;margin-bottom:14px}
+.sub{color:#607d8b;font-size:.86em;margin-bottom:18px}
+.flash{padding:10px 15px;border-radius:7px;margin-bottom:14px;font-size:.92em}
+.flash.success{background:#d4edda;color:#155724;border:1px solid #c3e6cb}
+.flash.error{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb}
+.flash.warning{background:#fff3cd;color:#856404;border:1px solid #ffc107}
+.stats{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:6px}
+.sbox{flex:1;min-width:130px;background:#f1f8e9;border:1px solid #c8e6c9;border-radius:9px;padding:14px 18px;text-align:center}
+.sbox .n{font-size:1.9em;font-weight:700;color:#2e7d32}
+.sbox .l{font-size:.77em;color:#607d8b;margin-top:2px}
+.badge{display:inline-block;padding:2px 9px;border-radius:11px;font-size:.75em;font-weight:600;margin:2px;vertical-align:middle;white-space:nowrap}
+.bg{background:#c8e6c9;color:#1b5e20}
+.br{background:#ffcdd2;color:#b71c1c}
+.bo{background:#ffe0b2;color:#bf360c}
+.bb{background:#bbdefb;color:#0d47a1}
+.bgr{background:#eceff1;color:#546e7a}
+.rcard{border:1px solid #c8e6c9;border-radius:9px;padding:15px 18px;margin-bottom:12px;background:#fafffe}
+.rcard h4{color:#00695c;font-size:.97em;margin-bottom:8px}
+.meta{display:flex;gap:18px;flex-wrap:wrap;font-size:.86em;color:#455a64;margin-bottom:8px}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;padding-top:10px;border-top:1px dashed #b2dfdb;margin-top:6px}
+.cgrid h5{font-size:.72em;text-transform:uppercase;letter-spacing:.06em;color:#90a4ae;margin-bottom:5px}
+.dsec{background:#f5f5f5;border-radius:8px;padding:14px 16px;margin-bottom:12px}
+.dsec h4{color:#00695c;font-size:.95em;margin-bottom:9px}
+.drow{margin-bottom:5px;font-size:.9em;color:#37474f}
+.drow b{color:#263238;min-width:130px;display:inline-block}
+.vlist{margin:5px 0 0 14px;font-size:.84em;color:#c62828;line-height:1.6}
+.note{font-size:.75em;color:#90a4ae;margin-top:7px}
+label{display:block;margin-top:13px;font-weight:600;font-size:.89em;color:#00695c}
+select,textarea{width:100%;padding:9px 11px;border:1.5px solid #b2dfdb;border-radius:6px;font-size:.93em;color:#263238;margin-top:4px;transition:border-color .2s}
+select:focus,textarea:focus{border-color:#00897b;outline:none;box-shadow:0 0 0 2px rgba(0,137,123,.1)}
+textarea{min-height:120px;resize:vertical;font-family:monospace;font-size:.84em}
+.btn{display:inline-block;padding:8px 20px;border-radius:6px;border:none;cursor:pointer;font-size:.9em;font-weight:600;text-decoration:none;transition:opacity .18s}
+.btn:hover{opacity:.85}
+.bp{background:#00897b;color:#fff}
+.bd{background:#e53935;color:#fff}
+.bs{background:#1565c0;color:#fff}
+.bg2{background:#eceff1;color:#455a64;border:1px solid #cfd8dc}
+.bsm{padding:4px 12px;font-size:.79em}
+.bblock{width:100%;display:block;text-align:center;margin-top:14px;padding:11px}
+table{width:100%;border-collapse:collapse;font-size:.86em}
+th{background:#e0f2f1;color:#00695c;padding:9px 11px;text-align:left;font-weight:600;white-space:nowrap}
+td{padding:8px 11px;border-bottom:1px solid #f0f0f0;vertical-align:middle}
+tr:hover td{background:#f9fffe}
+a{color:#1565c0;text-decoration:none}
+a:hover{text-decoration:underline}
+.empty{text-align:center;padding:36px;color:#b0bec5}
+.samples{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:9px}
+.pipeline-info{background:#f1f8e9;border-radius:8px;padding:13px 15px;margin-top:18px;font-size:.8em;color:#546e7a;line-height:1.75}
+.pipeline-info b{color:#00695c}
+</style>
 </head>
 <body>
-    <div class="container">
-        <h2>Acme Bank Auditor Portal</h2>
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                {% for category, message in messages %}
-                    <div class="flash {{ category }}">{{ message }}</div>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
 
-        {% if page == 'dashboard' %}
-            <h3>Dashboard</h3>
-            <p>Number of applications pending review: <strong>{{ pending_count }}</strong></p>
-            <p style="text-align: center;"><a href="{{ url_for('review_list') }}">View Pending Reviews</a></p>
-        
-        {% elif page == 'review_list' %}
-            <h3>Applications Pending Review</h3>
-            {% if reviews %}
-                <ul>
-                    {% for review in reviews %}
-                        <li>
-                            <strong>Applicant ID:</strong> {{ review.applicant_id }}<br>
-                            <strong>Demographic:</strong> {{ review.demographic }}<br>
-                            <a href="{{ url_for('review_detail', applicant_id=review.applicant_id) }}">Review Application</a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            {% else %}
-                <p>No applications pending review.</p>
-            {% endif %}
-            <p style="text-align: center;"><a href="{{ url_for('dashboard') }}">Back to Dashboard</a></p>
-        
-        {% elif page == 'review_detail' %}
-            <h3>Review Application - Applicant ID: {{ review.applicant_id }}</h3>
-            <p><strong>Demographic:</strong> {{ review.demographic }}</p>
-            <p><strong>Loan Status:</strong> {{ review.loan_status }}</p>
-            <p><strong>Risk Flag:</strong> {{ review.risk_flag }}</p>
-            <p><strong>Loan Criteria:</strong> {{ review.loan_criteria | join(', ') }}</p>
-            <p><strong>Ethics Review:</strong> {{ review.ethics_review }}</p>
-            <p><strong>Compliance Report:</strong> {{ review.compliance_report }}</p>
-            <p><strong>Final Decision:</strong> {{ review.final_decision }}</p>
-            {% if review.auditor_comments %}
-                <p><strong>Auditor Comments:</strong> {{ review.auditor_comments }}</p>
-            {% endif %}
+<nav>
+  <span class="brand">🏦 Acme Bank AI Governance</span>
+  <a href="{{ url_for('dashboard') }}" class="{% if page=='dashboard' %}nav-active{% endif %}">Dashboard</a>
+  <a href="{{ url_for('apply_form') }}" class="{% if page=='apply' %}nav-active{% endif %}">Apply (Form)</a>
+  <a href="{{ url_for('submit_raw') }}" class="{% if page=='submit_raw' %}nav-active{% endif %}">Submit (JSON)</a>
+  <a href="{{ url_for('all_decisions') }}" class="{% if page=='all_decisions' %}nav-active{% endif %}">All Decisions</a>
+  <a href="{{ url_for('review_list') }}" class="{% if page=='review_list' or page=='review_detail' %}nav-active{% endif %}">Pending Review</a>
+  <span class="law-tag">IT Act 2000 · DPDPA 2023 · GDPR</span>
+</nav>
 
-            <form method="post" action="{{ url_for('review_detail', applicant_id=review.applicant_id) }}">
-                <label for="final_decision">Update Final Decision:</label>
-                <select id="final_decision" name="final_decision" required>
-                    <option value="">Select decision</option>
-                    <option value="approved">Approve</option>
-                    <option value="rejected">Reject</option>
-                </select>
-                
-                <label for="auditor_comments">Additional Reasons / Comments:</label>
-                <textarea id="auditor_comments" name="auditor_comments" placeholder="Enter additional comments (optional)"></textarea>
-                
-                <div class="form-buttons">
-                    <input type="submit" value="Submit Decision">
-                </div>
-            </form>
-            <p style="text-align: center;"><a href="{{ url_for('review_list') }}">Back to Review List</a></p>
-        {% endif %}
+<div class="main">
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}{% for cat, msg in messages %}
+  <div class="flash {{ cat }}">{{ msg }}</div>
+{% endfor %}{% endif %}
+{% endwith %}
+
+{# ─────────────────────────────────────────── DASHBOARD ── #}
+{% if page == 'dashboard' %}
+<div class="card">
+  <h2>Dashboard</h2>
+  <p class="sub">7-agent AI governance pipeline · IT Act 2000 · DPDPA 2023 · GDPR EU 2016/679</p>
+  <div class="stats">
+    <div class="sbox"><div class="n">{{ total_count }}</div><div class="l">Total Applications</div></div>
+    <div class="sbox"><div class="n" style="color:#e53935">{{ pending_count }}</div><div class="l">Pending Review</div></div>
+    <div class="sbox"><div class="n" style="color:#1565c0">7</div><div class="l">AI Agents</div></div>
+    <div class="sbox"><div class="n" style="color:#6a1b9a">3</div><div class="l">Law Frameworks</div></div>
+  </div>
+</div>
+<div class="card">
+  <h3>Quick Actions</h3>
+  <div style="display:flex;gap:10px;flex-wrap:wrap">
+    <a href="{{ url_for('apply_form') }}" class="btn bp">+ Structured Form</a>
+    <a href="{{ url_for('submit_raw') }}" class="btn bs">+ Raw JSON</a>
+    <a href="{{ url_for('review_list') }}" class="btn bd">Review Pending ({{ pending_count }})</a>
+    <a href="{{ url_for('all_decisions') }}" class="btn bg2">All Decisions</a>
+  </div>
+  {% if total_count > 0 %}
+  <div style="margin-top:14px;padding-top:14px;border-top:1px solid #e0f2f1">
+    <p style="font-size:.82em;color:#90a4ae;margin-bottom:7px">Old records (missing compliance columns)? Clear them:</p>
+    <form method="post" action="{{ url_for('clear_old') }}" style="display:inline">
+      <button type="submit" class="btn bg2 bsm"
+              onclick="return confirm('Remove pre-migration records without compliance data?')">
+        Clear Pre-Migration Records
+      </button>
+    </form>
+  </div>
+  {% endif %}
+</div>
+
+{# ─────────────────────────────────────────── SUBMIT RAW ── #}
+{% elif page == 'submit_raw' %}
+<div class="card">
+  <h2>Submit — Raw JSON</h2>
+  <p class="sub">Paste a JSON object. The full 7-step AI governance pipeline will run.</p>
+
+  <p style="font-size:.84em;font-weight:600;color:#00695c;margin-bottom:6px">Load a sample:</p>
+  <div class="samples">
+    <button type="button" class="btn bg2 bsm" onclick="load('normal')">Normal</button>
+    <button type="button" class="btn bg2 bsm" onclick="load('minority')">Minority Group</button>
+    <button type="button" class="btn bg2 bsm" onclick="load('minor')">Minor (age 16)</button>
+    <button type="button" class="btn bg2 bsm" onclick="load('spdi')">High SPDI</button>
+    <button type="button" class="btn bg2 bsm" onclick="load('highrisk')">High Risk</button>
+    <button type="button" class="btn bg2 bsm" onclick="load('crossborder')">Cross-border</button>
+  </div>
+
+  <form method="post" action="{{ url_for('submit_raw') }}">
+    <label for="application_text">Application JSON</label>
+    <textarea id="application_text" name="application_text"
+      placeholder='{"applicant_id": "APP001", "demographic": "general", "loan_amount": 300000, ...}'></textarea>
+    <button type="submit" class="btn bp bblock">Run AI Governance Pipeline →</button>
+  </form>
+
+  <div class="pipeline-info">
+    <b>Pipeline steps:</b><br>
+    Step 0 · DataPrivacyClassifierAgent — field taxonomy (IT Act Rule 2(1)(i), DPDPA §4)<br>
+    Step 1 · SafetyControlAgent — bias detection<br>
+    Step 2 · EthicsAgent — ethics review (Acme Bank guidelines)<br>
+    Step 3 · ComplianceAgent — generic financial regulations<br>
+    Step 4 · ITActDPDPAComplianceAgent — India IT Act 2000 + DPDPA 2023<br>
+    Step 5 · GDPRComplianceAgent — GDPR Art. 5, 6, 13, 15, 17, 22<br>
+    Step 6 · HumanCollaborationAgent — final decision
+  </div>
+</div>
+
+{# ─────────────────────────────────────────── ALL DECISIONS ── #}
+{% elif page == 'all_decisions' %}
+<div class="card">
+  <h2>All Decisions</h2>
+  <p class="sub">All processed applications with compliance status across all three frameworks.</p>
+  {% if decisions %}
+  <div style="overflow-x:auto">
+  <table>
+    <thead>
+      <tr>
+        <th>Applicant ID</th>
+        <th>Demographic</th>
+        <th>Decision</th>
+        <th>Fin. Regs</th>
+        <th>IT Act + DPDPA</th>
+        <th>GDPR</th>
+        <th>SPDI</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for d in decisions %}
+    <tr>
+      <td><strong style="font-size:.85em">{{ d.get('applicant_id', '—') }}</strong></td>
+      <td>{{ d.get('demographic', '—') }}</td>
+      <td>
+        {% set dec = d.get('final_decision', '') %}
+        {% if dec == 'approved' %}<span class="badge bg">Approved</span>
+        {% elif dec == 'rejected' %}<span class="badge br">Rejected</span>
+        {% else %}<span class="badge bo">Needs Review</span>{% endif %}
+      </td>
+      <td>
+        {% set cr = d.get('compliance_report') %}
+        {% if cr %}
+          {% if cr.get('is_compliant') %}<span class="badge bg">OK</span>
+          {% else %}<span class="badge br">Fail</span>{% endif %}
+        {% else %}<span class="badge bgr">—</span>{% endif %}
+      </td>
+      <td>
+        {% set ind = d.get('india_compliance_report') %}
+        {% if ind %}
+          {% if ind.get('is_compliant') %}<span class="badge bg">OK</span>
+          {% else %}<span class="badge br">Fail</span>{% endif %}
+          {% if ind.get('cross_border_risk') %}<span class="badge bo">XB</span>{% endif %}
+          {% if ind.get('children_data_risk') %}<span class="badge bo">Minor</span>{% endif %}
+        {% else %}<span class="badge bgr">—</span>{% endif %}
+      </td>
+      <td>
+        {% set g = d.get('gdpr_compliance_report') %}
+        {% if g %}
+          {% if g.get('is_compliant') %}<span class="badge bg">OK</span>
+          {% else %}<span class="badge br">Fail</span>{% endif %}
+          {% if g.get('automated_decision_risk') %}<span class="badge br">Art.22</span>{% endif %}
+        {% else %}<span class="badge bgr">—</span>{% endif %}
+      </td>
+      <td>
+        {% set pc = d.get('privacy_classification') %}
+        {% if pc %}<span class="badge bb">{{ pc.get('spdi_count', 0) }}</span>
+          {% if pc.get('dpia_required') %}<span class="badge br">DPIA</span>{% endif %}
+        {% else %}<span class="badge bgr">—</span>{% endif %}
+      </td>
+      <td style="white-space:nowrap">
+        <a href="{{ url_for('review_detail', applicant_id=d.get('applicant_id', '')) }}"
+           class="btn bs bsm">Detail</a>
+        &nbsp;
+        <form method="post"
+              action="{{ url_for('erasure', applicant_id=d.get('applicant_id', '')) }}"
+              style="display:inline"
+              onsubmit="return confirm('Permanently erase all data? (GDPR Art.17)')">
+          <button type="submit" class="btn bd bsm">Erase</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+  {% else %}
+  <div class="empty">
+    <p>No applications yet.</p>
+    <a href="{{ url_for('apply_form') }}" class="btn bp" style="margin-top:12px;display:inline-block">Submit first application →</a>
+  </div>
+  {% endif %}
+</div>
+
+{# ─────────────────────────────────────────── REVIEW LIST ── #}
+{% elif page == 'review_list' %}
+<div class="card">
+  <h2>Pending Review</h2>
+  <p class="sub">Applications flagged by AI agents requiring a human auditor decision.</p>
+  {% if reviews %}
+  {% for review in reviews %}
+  <div class="rcard">
+    <h4>
+      {{ review.get('applicant_id', '—') }}
+      <span class="badge bo" style="margin-left:6px">Needs Review</span>
+      {% set ind2 = review.get('india_compliance_report') %}
+      {% if ind2 and not ind2.get('is_compliant') %}<span class="badge br">India Law</span>{% endif %}
+      {% set g2 = review.get('gdpr_compliance_report') %}
+      {% if g2 and not g2.get('is_compliant') %}<span class="badge br">GDPR</span>{% endif %}
+      {% if ind2 and ind2.get('children_data_risk') %}<span class="badge bo">Minor</span>{% endif %}
+    </h4>
+    <div class="meta">
+      <span><b>Demographic:</b> {{ review.get('demographic', '—') }}</span>
+      <span><b>Status:</b> {{ review.get('loan_status', 'pending') }}</span>
+      <span><b>Purpose:</b> {{ review.get('loan_purpose', '—') }}</span>
     </div>
+    <div class="cgrid">
+      <div>
+        <h5>Financial Regs</h5>
+        {% set cr2 = review.get('compliance_report') %}
+        {% if cr2 %}
+          {% if cr2.get('is_compliant') %}<span class="badge bg">Compliant</span>
+          {% else %}<span class="badge br">Non-Compliant</span>
+            {% for r in (cr2.get('non_compliant_regulations') or []) %}<br><span class="badge br" style="margin-top:2px">{{ r }}</span>{% endfor %}
+          {% endif %}
+        {% else %}<span class="badge bgr">—</span>{% endif %}
+      </div>
+      <div>
+        <h5>IT Act + DPDPA</h5>
+        {% set ind3 = review.get('india_compliance_report') %}
+        {% if ind3 %}
+          {% if ind3.get('is_compliant') %}<span class="badge bg">Compliant</span>
+          {% else %}<span class="badge br">Non-Compliant</span>
+            {% for s in (ind3.get('violated_sections') or []) %}<br><span class="badge br" style="margin-top:2px">{{ s }}</span>{% endfor %}
+          {% endif %}
+          {% if ind3.get('cross_border_risk') %}<br><span class="badge bo" style="margin-top:2px">Cross-border §16</span>{% endif %}
+          {% if ind3.get('children_data_risk') %}<br><span class="badge bo" style="margin-top:2px">Children Data §9</span>{% endif %}
+        {% else %}<span class="badge bgr">Not run</span>{% endif %}
+      </div>
+      <div>
+        <h5>GDPR EU 2016/679</h5>
+        {% set g3 = review.get('gdpr_compliance_report') %}
+        {% if g3 %}
+          {% if g3.get('is_compliant') %}<span class="badge bg">GDPR OK</span>
+          {% else %}<span class="badge br">Violation</span>
+            {% for a in (g3.get('violated_articles') or []) %}<br><span class="badge br" style="margin-top:2px">{{ a }}</span>{% endfor %}
+          {% endif %}
+          {% if g3.get('automated_decision_risk') %}<br><span class="badge br" style="margin-top:2px">Art.22</span>{% endif %}
+        {% else %}<span class="badge bgr">Not run</span>{% endif %}
+      </div>
+      <div>
+        <h5>Data Classification</h5>
+        {% set pc2 = review.get('privacy_classification') %}
+        {% if pc2 %}
+          <span class="badge bb">SPDI: {{ pc2.get('spdi_count', 0) }}</span>
+          {% if pc2.get('consent_required') %}<br><span class="badge bo" style="margin-top:2px">Consent Req.</span>{% endif %}
+          {% if pc2.get('dpia_required') %}<br><span class="badge br" style="margin-top:2px">DPIA Req.</span>{% endif %}
+        {% else %}<span class="badge bgr">—</span>{% endif %}
+      </div>
+    </div>
+    <div style="margin-top:11px">
+      <a href="{{ url_for('review_detail', applicant_id=review.get('applicant_id', '')) }}"
+         class="btn bp bsm">→ Full Review &amp; Decision</a>
+    </div>
+  </div>
+  {% endfor %}
+  {% else %}
+  <div class="empty"><p>No applications pending review.</p></div>
+  {% endif %}
+</div>
+
+{# ─────────────────────────────────────────── REVIEW DETAIL ── #}
+{% elif page == 'review_detail' %}
+<p style="margin-bottom:12px"><a href="{{ url_for('review_list') }}">← Back to Pending Review</a>
+&nbsp;|&nbsp;<a href="{{ url_for('all_decisions') }}">All Decisions</a></p>
+
+<div class="card">
+  <h2>Application Detail</h2>
+  <h3>ID: {{ review.get('applicant_id', '—') }}</h3>
+
+  <div class="dsec">
+    <h4>📄 Application Info</h4>
+    <div class="drow"><b>Demographic:</b> {{ review.get('demographic', '—') }}</div>
+    <div class="drow"><b>Loan Amount:</b> {{ review.get('loan_amount', '—') }}</div>
+    <div class="drow"><b>Income:</b> {{ review.get('income', '—') }}</div>
+    <div class="drow"><b>Age:</b> {{ review.get('age', '—') }}</div>
+    <div class="drow"><b>Purpose:</b> {{ review.get('loan_purpose', '—') }}</div>
+    <div class="drow"><b>Employment:</b> {{ review.get('employment_status', '—') }}</div>
+    <div class="drow"><b>Credit Score:</b> {{ review.get('credit_score', '—') }}</div>
+    <div class="drow"><b>Risk Flag:</b> {{ review.get('risk_flag', '—') }}</div>
+    <div class="drow"><b>SPDI Consent:</b>
+      {% if review.get('spdi_consent') %}<span class="badge bg">Granted</span>
+      {% else %}<span class="badge br">Not Granted</span>{% endif %}
+    </div>
+    <div class="drow"><b>Ethics Review:</b>
+      {% set er = review.get('ethics_review') %}
+      {% if er %}
+        {% if er.get('ethical') == true %}<span class="badge bg">ETHICAL</span>
+        {% elif er.get('ethical') == false %}
+          <span class="badge br">UNETHICAL</span> — {{ er.get('reasons', [])|join('; ') }}
+        {% else %}<span class="badge bo">Inconclusive</span>{% endif %}
+      {% else %}—{% endif %}
+    </div>
+    <div class="drow"><b>Current Decision:</b>
+      {% set fd = review.get('final_decision', '') %}
+      {% if fd == 'approved' %}<span class="badge bg">Approved</span>
+      {% elif fd == 'rejected' %}<span class="badge br">Rejected</span>
+      {% else %}<span class="badge bo">Requires Review</span>{% endif %}
+    </div>
+    {% if review.get('auditor_comments') %}
+    <div class="drow"><b>Auditor Notes:</b> {{ review.get('auditor_comments') }}</div>
+    {% endif %}
+  </div>
+
+  {% set pc3 = review.get('privacy_classification') %}
+  {% if pc3 %}
+  <div class="dsec">
+    <h4>🔍 Data Classification (IT Act Rule 2(1)(i) · DPDPA 2023)</h4>
+    <span class="badge bb">{{ pc3.get('spdi_count', 0) }} SPDI fields</span>
+    {% if pc3.get('consent_required') %}<span class="badge bo">Consent Required (DPDPA §6)</span>{% endif %}
+    {% if pc3.get('dpia_required') %}<span class="badge br">DPIA Required (DPDPA §10 · GDPR Art.35)</span>{% endif %}
+    {% set fc = pc3.get('field_classes') %}
+    {% if fc %}
+    <div style="margin-top:9px;line-height:2.1">
+      {% for field, cls in fc.items() %}
+        <span class="badge {% if cls=='SENSITIVE_PERSONAL_DATA' %}br{% elif cls=='PERSONAL_DATA' %}bo{% else %}bgr{% endif %}">
+          {{ field }}: {{ cls }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+    <p class="note">SPDI requires explicit consent before collection (IT Act Rule 5.3, DPDPA §6). DPIA mandatory for 5+ SPDI fields.</p>
+  </div>
+  {% endif %}
+
+  {% set ind4 = review.get('india_compliance_report') %}
+  {% if ind4 %}
+  <div class="dsec">
+    <h4>🇮🇳 India IT Act 2000 + DPDPA 2023</h4>
+    {% if ind4.get('is_compliant') %}<span class="badge bg">✅ Compliant</span>
+    {% else %}
+      <span class="badge br">❌ Non-Compliant</span>
+      {% set vs = ind4.get('violated_sections') or [] %}
+      {% if vs %}<ul class="vlist">{% for s in vs %}<li>{{ s }}</li>{% endfor %}</ul>{% endif %}
+      {% set rs = ind4.get('reasons') or [] %}
+      {% if rs %}<ul class="vlist" style="color:#455a64">{% for r in rs %}<li>{{ r }}</li>{% endfor %}</ul>{% endif %}
+    {% endif %}
+    {% if ind4.get('cross_border_risk') %}
+      <div style="margin-top:6px"><span class="badge bo">🌐 Cross-border Transfer Risk — DPDPA Section 16</span></div>{% endif %}
+    {% if ind4.get('children_data_risk') %}
+      <div style="margin-top:4px"><span class="badge bo">👶 Minor Applicant — Parental Consent Required (DPDPA §9)</span></div>{% endif %}
+    <p class="note">Penalties: up to ₹250 crore for security failures · ₹200 crore for breach non-notification (DPDPA §§25–40)</p>
+  </div>
+  {% endif %}
+
+  {% set g4 = review.get('gdpr_compliance_report') %}
+  {% if g4 %}
+  <div class="dsec">
+    <h4>🇪🇺 GDPR EU 2016/679</h4>
+    {% if g4.get('is_compliant') %}<span class="badge bg">✅ GDPR Compliant</span>
+    {% else %}
+      <span class="badge br">❌ Violation</span>
+      {% set va = g4.get('violated_articles') or [] %}
+      {% if va %}<ul class="vlist">{% for a in va %}<li>{{ a }}</li>{% endfor %}</ul>{% endif %}
+      {% set gr = g4.get('reasons') or [] %}
+      {% if gr %}<ul class="vlist" style="color:#455a64">{% for r in gr %}<li>{{ r }}</li>{% endfor %}</ul>{% endif %}
+    {% endif %}
+    {% if g4.get('automated_decision_risk') %}
+      <div style="margin-top:6px"><span class="badge br">⚠️ Art.22: Automated decision — human review mandatory</span></div>{% endif %}
+    {% if g4.get('right_to_be_forgotten_applicable') %}
+      <div style="margin-top:4px"><span class="badge bo">🗑️ Art.17: Right to erasure applicable</span></div>{% endif %}
+    {% if not g4.get('lawful_basis_documented', true) %}
+      <div style="margin-top:4px"><span class="badge br">❗ Art.6: No documented lawful basis</span></div>{% endif %}
+    <p class="note">Penalties: up to €20M or 4% global turnover (Art.83 Tier 2)</p>
+  </div>
+  {% endif %}
+
+  {% set cr3 = review.get('compliance_report') %}
+  {% if cr3 %}
+  <div class="dsec">
+    <h4>📋 Generic Financial Regulations</h4>
+    {% if cr3.get('is_compliant') %}<span class="badge bg">✅ Compliant</span>
+    {% else %}
+      <span class="badge br">❌ Non-Compliant</span>
+      {% set nr = cr3.get('non_compliant_regulations') or [] %}
+      {% if nr %}<ul class="vlist">{% for r in nr %}<li>{{ r }}</li>{% endfor %}</ul>{% endif %}
+      {% set rr = cr3.get('reasons') or [] %}
+      {% if rr %}<ul class="vlist" style="color:#455a64">{% for r in rr %}<li>{{ r }}</li>{% endfor %}</ul>{% endif %}
+    {% endif %}
+  </div>
+  {% endif %}
+
+  <div class="dsec">
+    <h4>✏️ Auditor Decision</h4>
+    <form method="post" action="{{ url_for('review_detail', applicant_id=review.get('applicant_id', '')) }}">
+      <label for="final_decision">Final Decision</label>
+      <select id="final_decision" name="final_decision" required>
+        <option value="">— Select —</option>
+        <option value="approved">✅ Approve</option>
+        <option value="rejected">❌ Reject</option>
+      </select>
+      <label for="auditor_comments">Reasoning / Comments</label>
+      <textarea id="auditor_comments" name="auditor_comments"
+        placeholder="e.g. Rejected — DPDPA §6 consent not documented for SPDI fields (income, account_number)."></textarea>
+      <button type="submit" class="btn bp bblock">Submit Auditor Decision</button>
+    </form>
+    <div style="margin-top:13px;padding-top:12px;border-top:1px solid #e0e0e0">
+      <p style="font-size:.8em;color:#90a4ae;margin-bottom:7px">GDPR Art.17 / DPDPA §13 — Right to erasure:</p>
+      <form method="post"
+            action="{{ url_for('erasure', applicant_id=review.get('applicant_id', '')) }}"
+            onsubmit="return confirm('Permanently erase all data for this applicant?')">
+        <button type="submit" class="btn bd bsm">🗑️ Erase All Data</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+</div>{# end .main #}
+
+<script>
+const S = {
+  normal:{applicant_id:"APP-NORMAL-001",demographic:"general",loan_amount:300000,income:75000,age:32,loan_purpose:"home renovation",account_number:"HDFC-00123456",employment_status:"salaried",credit_score:720},
+  minority:{applicant_id:"APP-MIN-002",demographic:"group_Z_minority",loan_amount:500000,income:60000,age:28,loan_purpose:"business expansion",account_number:"SBI-00987654",employment_status:"self-employed",credit_score:680},
+  minor:{applicant_id:"APP-CHILD-003",demographic:"general",loan_amount:50000,income:0,age:16,loan_purpose:"education",guardian_name:"Ramesh Kumar",guardian_consent_documented:false},
+  spdi:{applicant_id:"APP-SPDI-004",demographic:"female",loan_amount:800000,income:120000,age:35,loan_purpose:"medical treatment",account_number:"ICICI-00456789",health_condition:"diabetes type 2",biometric_data:"fingerprint_hash_abc123",medical_history:"hypertension 2020",credit_card_number:"4111-XXXX-XXXX-1234",spdi_consent:false},
+  highrisk:{applicant_id:"APP-RISK-005",demographic:"general",loan_amount:5000000,income:50000,age:45,loan_purpose:"undisclosed",account_number:"AXIS-00111222",previous_fraud_flag:true,cash_transactions_last_month:980000,kyc_status:"incomplete",pep_status:"politically_exposed_person"},
+  crossborder:{applicant_id:"APP-XB-006",demographic:"NRI",loan_amount:2000000,income:200000,age:40,loan_purpose:"property purchase",account_number:"SBI-NRI-00334455",data_processing_location:"AWS us-east-1 USA",analytics_vendor:"Experian UK Ltd",cross_border_consent:false}
+};
+function load(k){
+  const el=document.getElementById('application_text');
+  if(el) el.value=JSON.stringify(S[k],null,2);
+}
+</script>
 </body>
 </html>

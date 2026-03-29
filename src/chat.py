@@ -1,57 +1,83 @@
+# chat.py — Groq version (replaces beeai-framework + Ollama)
 import asyncio
 import json
-from beeai_framework.backend.message import UserMessage, AssistantMessage
-from beeai_framework.backend.chat import ChatModel, ChatModelInput, ChatModelOutput
-from beeai_framework.memory.unconstrained_memory import UnconstrainedMemory
+import os
 
-# Initialize the chat model globally to avoid recreating it for each request
-model = ChatModel.from_name("ollama:granite3.1-dense:8b")
+from groq import AsyncGroq
+from dotenv import load_dotenv
+
+load_dotenv()
+
+_client = AsyncGroq(api_key=os.environ.get("GROQ_API_KEY"))
+GROQ_MODEL = "llama-3.3-70b-versatile"
+
 
 async def chat_model_demo():
-    """Demonstrates simple chat interactions with memory usage."""
-    user_message = UserMessage(content="Hello! What is the capital of France?")
-    output: ChatModelOutput = await model.create(ChatModelInput(messages=[user_message]))
-    print("ChatModel Response:", output.get_text_content())
+    """Quick demo of Groq chat."""
+    resp = await _client.chat.completions.create(
+        model=GROQ_MODEL,
+        messages=[{"role": "user", "content": "What is the capital of France?"}],
+        max_tokens=64,
+    )
+    print("Groq response:", resp.choices[0].message.content)
 
-    # Demonstrate memory usage by preserving conversation history
-    memory = UnconstrainedMemory()
-    await memory.add_many([
-        user_message,
-        AssistantMessage(content=output.get_text_content()),
-        UserMessage(content="Can you recommend one thing to do in Paris?")
-    ])
-    memory_output: ChatModelOutput = await model.create(ChatModelInput(messages=memory.messages))
-    print("Memory-based Response:", memory_output.get_text_content())
 
 async def process_submission(text: str) -> dict:
     """
-    Processes loan application submission text using the ChatModel.
-    Attempts to parse JSON data from the submission.
-    If parsing fails, uses default values and sends the raw text to the model.
+    Parses loan application submission text.
+    Tries JSON first; falls back to asking the LLM to extract structured fields.
     """
     try:
-        # Try to parse the text as JSON for structured data.
         data = json.loads(text)
-    except Exception:
-        data = {"applicant_id": "unknown", "demographic": "unknown", "raw_text": text}
+        return {
+            "applicant_id":  data.get("applicant_id", "unknown"),
+            "demographic":   data.get("demographic",  "unknown"),
+            "loan_amount":   data.get("loan_amount",  None),
+            "income":        data.get("income",        None),
+            "age":           data.get("age",           None),
+            "loan_purpose":  data.get("loan_purpose",  "unspecified"),
+            "loan_status":   "pending",
+            "risk_flag":     "pending",
+            **{k: v for k, v in data.items()
+               if k not in ("applicant_id","demographic","loan_amount",
+                            "income","age","loan_purpose")},
+        }
+    except (json.JSONDecodeError, ValueError):
+        pass
 
-    # Use the ChatModel to process the submission text.
-    user_message = UserMessage(content=text)
+    system = (
+        "You are a loan application parser. "
+        "Extract these fields from the text and return ONLY valid JSON: "
+        "applicant_id, demographic, loan_amount, income, age, loan_purpose. "
+        "Use null for any field not mentioned."
+    )
     try:
-        output: ChatModelOutput = await model.create(ChatModelInput(messages=[user_message]))
-        response_text = output.get_text_content()
-    except Exception as e:
-        response_text = f"Error processing submission: {str(e)}"
+        resp = await _client.chat.completions.create(
+            model=GROQ_MODEL,
+            messages=[
+                {"role": "system", "content": system},
+                {"role": "user",   "content": text},
+            ],
+            response_format={"type": "json_object"},
+            temperature=0.0,
+            max_tokens=256,
+        )
+        data = json.loads(resp.choices[0].message.content)
+    except Exception:
+        data = {}
 
-    # Build the processed submission dictionary.
-    result = {
+    return {
         "applicant_id": data.get("applicant_id", "unknown"),
-        "demographic": data.get("demographic", "unknown"),
-        "loan_status": "pending",  # initial status
-        "risk_flag": response_text  # initial evaluation from the model
+        "demographic":  data.get("demographic",  "unknown"),
+        "loan_amount":  data.get("loan_amount",  None),
+        "income":       data.get("income",        None),
+        "age":          data.get("age",           None),
+        "loan_purpose": data.get("loan_purpose",  "unspecified"),
+        "loan_status":  "pending",
+        "risk_flag":    "pending",
+        "raw_text":     text,
     }
-    return result
 
-# Ensuring the script does not execute chat_model_demo when imported in FastAPI
+
 if __name__ == "__main__":
     asyncio.run(chat_model_demo())

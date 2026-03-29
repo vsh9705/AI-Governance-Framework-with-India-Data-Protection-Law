@@ -1,0 +1,174 @@
+GENERAL DATA PROTECTION REGULATION (GDPR) — EU 2016/679
+Applicable to: Any AI system processing data of EU residents, or organizations
+with EU operations. Adopted as a global best-practice standard for data governance.
+
+=======================================================================
+CHAPTER I — GENERAL PROVISIONS
+=======================================================================
+
+ARTICLE 1 — Subject-matter and objectives
+GDPR protects natural persons with regard to the processing of their personal data
+and ensures the free movement of personal data.
+
+ARTICLE 4 — Definitions
+- Personal data: Any information relating to an identified or identifiable natural person.
+- Processing: Any operation performed on personal data (collection, storage, use, disclosure).
+- Controller: The entity that determines the purposes and means of processing.
+- Processor: The entity that processes data on behalf of the controller.
+- Data subject: The natural person whose data is processed.
+- Consent: Freely given, specific, informed, and unambiguous indication of agreement.
+- Special categories: Racial/ethnic origin, political opinions, religious beliefs,
+  genetic data, biometric data, health data, sexual orientation.
+
+=======================================================================
+CHAPTER II — PRINCIPLES (ARTICLE 5)
+=======================================================================
+
+ARTICLE 5 — Principles relating to processing of personal data
+All personal data must be:
+  (a) Lawfulness, fairness, and transparency: Processed lawfully, fairly, and transparently.
+  (b) Purpose limitation: Collected for specified, explicit, and legitimate purposes only.
+      Must not be further processed in a manner incompatible with those purposes.
+  (c) Data minimisation: Adequate, relevant, and limited to what is necessary.
+      AI systems must not collect more data than needed for loan decisions.
+  (d) Accuracy: Kept accurate and up to date. Inaccurate data must be erased or rectified.
+  (e) Storage limitation: Kept no longer than necessary for the purposes.
+      Loan records must have defined retention periods.
+  (f) Integrity and confidentiality: Processed with appropriate security,
+      protecting against unauthorised processing, accidental loss, destruction, or damage.
+  (g) Accountability: The controller is responsible for and must demonstrate compliance.
+
+=======================================================================
+CHAPTER II — LAWFULNESS OF PROCESSING (ARTICLE 6)
+=======================================================================
+
+ARTICLE 6 — Lawfulness of processing
+Processing is lawful only if at least one of the following applies:
+  (a) Consent: The data subject has given consent for one or more specific purposes.
+  (b) Contract: Processing is necessary for a contract to which the data subject is party.
+  (c) Legal obligation: Processing is necessary for compliance with a legal obligation.
+  (d) Vital interests: Processing is necessary to protect vital interests.
+  (e) Public task: Processing is necessary for performance of a public interest task.
+  (f) Legitimate interests: Processing is necessary for legitimate interests of the controller,
+      unless overridden by the data subject's fundamental rights.
+
+ARTICLE 9 — Processing of special categories of personal data
+Processing of biometric data, health data, financial vulnerability data is prohibited
+unless explicit consent is obtained, or it falls under a specific exemption.
+
+=======================================================================
+CHAPTER III — RIGHTS OF DATA SUBJECTS
+=======================================================================
+
+ARTICLE 12 — Transparent information and communication
+The controller must provide information in a concise, transparent, intelligible,
+and easily accessible form. Requests must be responded to within ONE MONTH.
+
+ARTICLE 13 — Right to be informed (data collected directly)
+When collecting data, inform the data subject of:
+  - Controller identity and contact
+  - Purposes and legal basis for processing
+  - Recipients of the personal data
+  - Data retention period
+  - Existence of automated decision-making and meaningful information about logic involved
+  - Rights available to the data subject
+
+ARTICLE 14 — Right to be informed (data not collected directly)
+Where data was not collected directly from the data subject, they must be informed
+within a reasonable period (at most 1 month).
+
+ARTICLE 15 — Right of access
+Data subjects have the right to obtain confirmation of whether their personal data
+is being processed, and if so, access to that data and a copy.
+AI systems must provide a /rights/access endpoint.
+
+ARTICLE 16 — Right to rectification
+Data subjects may request correction of inaccurate personal data without undue delay.
+
+ARTICLE 17 — Right to erasure ('Right to be forgotten')
+Data subjects may request erasure of personal data when:
+  (a) Data is no longer necessary for the purposes it was collected.
+  (b) Consent is withdrawn and there is no other legal ground for processing.
+  (c) Data subject objects to processing and there are no overriding legitimate grounds.
+  (d) Personal data has been unlawfully processed.
+  (e) Erasure is required by Union or Member State law.
+AI systems must provide a /rights/erasure endpoint and process requests promptly.
+
+ARTICLE 18 — Right to restriction of processing
+Data subjects may restrict processing in certain circumstances (e.g., disputing accuracy).
+
+ARTICLE 20 — Right to data portability
+Data subjects may receive their personal data in a structured, machine-readable format
+and transmit it to another controller.
+
+ARTICLE 21 — Right to object
+Data subjects may object to processing at any time, including profiling for
+direct marketing purposes. The AI must cease processing upon a valid objection.
+
+ARTICLE 22 — Automated individual decision-making including profiling
+Data subjects have the right NOT to be subject to a decision based solely on
+automated processing that significantly affects them, including profiling.
+EXCEPTIONS: Allowed only if:
+  (a) Necessary for a contract with the data subject.
+  (b) Authorised by Union or Member State law.
+  (c) Based on explicit consent.
+REQUIREMENT: In cases (a) and (c), the controller must implement suitable safeguards,
+including the right to obtain human intervention, express their point of view,
+and contest the decision.
+Applicable when: Every AI loan decision (approved/rejected) made automatically
+must disclose the logic used and offer a human review option.
+
+=======================================================================
+CHAPTER IV — CONTROLLER AND PROCESSOR OBLIGATIONS
+=======================================================================
+
+ARTICLE 24 — Responsibility of the controller
+Controllers must implement appropriate technical and organisational measures
+to ensure processing is performed in accordance with GDPR.
+
+ARTICLE 25 — Data protection by design and by default
+Controllers must implement data protection principles at the time of designing
+the system and by default only process data necessary for each specific purpose.
+
+ARTICLE 30 — Records of processing activities
+Controllers must maintain records of processing activities including:
+  - Purposes of processing
+  - Categories of data subjects and personal data
+  - Recipients
+  - Retention periods
+  - Technical and organisational security measures
+
+ARTICLE 32 — Security of processing
+Implement appropriate measures including:
+  - Pseudonymisation and encryption of personal data
+  - Ongoing confidentiality, integrity, availability of systems
+  - Regular testing, assessing, and evaluating security measures
+
+ARTICLE 33 — Notification of breach to supervisory authority
+Controllers must notify the supervisory authority within 72 hours of
+becoming aware of a personal data breach.
+
+ARTICLE 35 — Data Protection Impact Assessment (DPIA)
+Required before processing that is likely to result in a high risk to data subjects'
+rights. Mandatory for: systematic profiling, large scale processing of special
+categories, systematic monitoring of publicly accessible areas.
+
+=======================================================================
+CHAPTER VIII — REMEDIES, LIABILITY AND PENALTIES
+=======================================================================
+
+ARTICLE 77 — Right to lodge a complaint with a supervisory authority
+Data subjects may lodge a complaint with a supervisory authority.
+
+ARTICLE 79 — Right to an effective judicial remedy
+Data subjects have the right to an effective judicial remedy against a controller.
+
+ARTICLE 82 — Right to compensation and liability
+Any person who has suffered material or non-material damage as a result of
+an infringement has the right to receive compensation from the controller or processor.
+
+ARTICLE 83 — General conditions for imposing administrative fines
+Tier 1 violations (Articles 8, 11, 25–39, 42, 43):
+  Up to €10 million, or 2% of total worldwide annual turnover (whichever is higher).
+Tier 2 violations (Articles 5, 6, 7, 9, 12–22, 44–49):
+  Up to €20 million, or 4% of total worldwide annual turnover (whichever is higher).

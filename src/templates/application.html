@@ -3,248 +3,367 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loan Application Form - Acme Bank</title>
+    <title>Loan Application — Acme Bank</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #e0f7fa; /* Light Cyan background */
-            color: #004d40; /* Teal Darken-3 text color */
-            margin: 0;
-            padding: 0;
+            background-color: #e0f7fa;
+            color: #004d40;
+            margin: 0; padding: 0;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             min-height: 100vh;
+            padding: 30px 12px;
         }
         .container {
-            background-color: #ffffff; /* White container background */
-            padding: 40px;
-            border-radius: 12px; /* Rounded corners */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Softer shadow */
-            width: 700px;
-            max-width: 95%;
+            background-color: #ffffff;
+            padding: 36px 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            width: 680px;
+            max-width: 100%;
             box-sizing: border-box;
         }
+        .back-link {
+            display: block;
+            margin-bottom: 18px;
+            font-size: .88em;
+            color: #1565c0;
+            text-decoration: none;
+        }
+        .back-link:hover { text-decoration: underline; }
         h2 {
             text-align: center;
-            color: #00796b; /* Teal color for heading */
-            margin-bottom: 25px;
+            color: #00796b;
+            margin-bottom: 6px;
             font-weight: bold;
-            font-size: 2.2em;
+            font-size: 2em;
         }
-        h3 {
+        .law-note {
             text-align: center;
-            color: #0056b3; /* Dark blue for subheadings */
-            margin-bottom: 20px;
+            font-size: .78em;
+            color: #607d8b;
+            margin-bottom: 22px;
+            background: #e0f7fa;
+            border-radius: 6px;
+            padding: 6px 12px;
         }
         label {
-            font-weight: 600; /* Semi-bold label */
+            font-weight: 600;
             display: block;
-            margin-top: 20px;
-            color: #26a69a; /* Teal Lighten-1 label color */
+            margin-top: 18px;
+            color: #26a69a;
+            font-size: .92em;
         }
+        .required::after { content: " *"; color: #e53935; }
         input[type="text"],
         input[type="number"],
         textarea,
         select {
             width: 100%;
-            padding: 12px;
-            margin-top: 8px;
-            border: 1px solid #b2dfdb; /* Teal Lighten-4 border */
+            padding: 11px 12px;
+            margin-top: 6px;
+            border: 1px solid #b2dfdb;
             border-radius: 6px;
             box-sizing: border-box;
             font-size: 1em;
-            color: #37474f; /* Blue Grey Darken-3 text input color */
+            color: #37474f;
             transition: border-color 0.3s ease;
         }
-        input[type="text"]:focus,
-        input[type="number"]:focus,
-        textarea:focus,
-        select:focus {
-            border-color: #00bfa5; /* Teal Accent-4 focus border */
+        input:focus, textarea:focus, select:focus {
+            border-color: #00bfa5;
             outline: none;
-            box-shadow: 0 0 0 2px rgba(0, 191, 165, 0.2); /* Focus ring */
+            box-shadow: 0 0 0 2px rgba(0,191,165,0.18);
         }
-        textarea {
-            resize: vertical;
-            min-height: 120px;
+        textarea { resize: vertical; min-height: 90px; }
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 18px;
         }
+        .consent-box {
+            margin-top: 18px;
+            background: #fff3e0;
+            border: 1px solid #ffb74d;
+            border-radius: 8px;
+            padding: 14px 16px;
+            font-size: .88em;
+        }
+        .consent-box p { color: #e65100; font-weight: 600; margin-bottom: 8px; }
+        .consent-box .detail { color: #5d4037; font-size: .83em; margin-bottom: 10px; line-height: 1.5; }
+        .consent-row { display: flex; align-items: flex-start; gap: 10px; }
+        .consent-row input[type="checkbox"] {
+            width: 18px; height: 18px; margin-top: 2px;
+            accent-color: #e65100; flex-shrink: 0;
+        }
+        .consent-row span { font-size: .87em; color: #37474f; line-height: 1.4; }
         input[type="submit"] {
-            background-color: #009688; /* Teal color for buttons */
+            background-color: #009688;
             color: white;
             border: none;
             padding: 14px 24px;
             border-radius: 6px;
             cursor: pointer;
-            margin-top: 30px;
+            margin-top: 26px;
             width: 100%;
-            font-size: 1.1em;
+            font-size: 1.05em;
             font-weight: 500;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,.2);
+            transition: background-color 0.3s, transform 0.2s;
         }
         input[type="submit"]:hover {
-            background-color: #00796b; /* Darker Teal on hover */
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+            background-color: #00796b;
+            transform: translateY(-1px);
         }
-        .flash {
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 6px;
+        .flash { padding: 12px 15px; margin-bottom: 16px; border-radius: 6px; }
+        .flash.success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .flash.error   { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .flash.warning { background: #fff3cd; color: #856404; border: 1px solid #ffc107; }
+        .section-divider {
+            margin-top: 22px;
+            padding-top: 16px;
+            border-top: 1px dashed #b2dfdb;
+            font-size: .78em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: #90a4ae;
         }
-        .flash.success {
-            background-color: #d4edda; /* Green success flash */
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-        .flash.error {
-            background-color: #f8d7da; /* Red error flash */
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-        .flash.warning {
-            background-color: #ffe0b2; /* Light Orange background for warning */
-            color: #ff6f00;
-            border: 1px solid #ffb300;
-        }
-        .form-buttons {
+        .example-bar {
             display: flex;
-            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 18px;
+            padding: 10px 14px;
+            background: #f1f8e9;
+            border-radius: 8px;
         }
-        .form-buttons input[type="submit"] {
-            width: 100%;
-            margin-top: 20px;
-        }
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-        li {
-            margin-bottom: 10px;
-            padding: 10px;
-            background-color: #f8f9fa;
-            border: 1px solid #ced4da;
-            border-radius: 6px;
-        }
-        /* Loader styling */
+        .example-bar label { margin: 0; color: #2e7d32; font-size: .85em; white-space: nowrap; }
+        .example-bar select { margin: 0; font-size: .88em; }
         .loader {
-            border: 16px solid #f3f3f3; /* Light gray */
-            border-top: 16px solid #3498db; /* Blue */
+            border: 14px solid #f3f3f3;
+            border-top: 14px solid #009688;
             border-radius: 50%;
-            width: 120px;
-            height: 120px;
-            animation: spin 2s linear infinite;
+            width: 80px; height: 80px;
+            animation: spin 1.2s linear infinite;
             position: fixed;
-            top: 50%;
-            left: 50%;
+            top: 50%; left: 50%;
             transform: translate(-50%, -50%);
             z-index: 9999;
-            display: none; /* Hidden by default */
+            display: none;
+        }
+        .loader-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.35);
+            z-index: 9998;
         }
         @keyframes spin {
-            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            0%   { transform: translate(-50%, -50%) rotate(0deg); }
             100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        .loading-text {
+            display: none;
+            position: fixed;
+            top: calc(50% + 56px);
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            font-size: .95em;
+            z-index: 9999;
+            white-space: nowrap;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Loan Application Form - Acme Bank</h2>
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                {% for category, message in messages %}
-                    <div class="flash {{ category }}">{{ message }}</div>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
-        <form method="post" id="applicationForm">
-            <label for="applicant_id">Applicant ID:</label>
-            <input type="text" id="applicant_id" name="applicant_id" placeholder="Enter your applicant ID" required value="{{ example_data.applicant_id if example_data else '' }}">
+<div class="container">
 
-            <label for="demographic">Demographic Group:</label>
-            <select id="demographic" name="demographic" required>
-                <option value="">Select Group</option>
-                <option value="group_A" {% if example_data and example_data.demographic == 'group_A' %}selected{% endif %}>Group A</option>
-                <option value="group_B" {% if example_data and example_data.demographic == 'group_B' %}selected{% endif %}>Group B</option>
-                <option value="group_C" {% if example_data and example_data.demographic == 'group_C' %}selected{% endif %}>Group C</option>
-                <option value="group_Z_minority" {% if example_data and example_data.demographic == 'group_Z_minority' %}selected{% endif %}>group_Z_minority</option>
-            </select>
+    <a class="back-link" href="/">← Back to Governance Portal</a>
 
-            <label for="loan_amount">Loan Amount:</label>
-            <input type="number" id="loan_amount" name="loan_amount" placeholder="Enter loan amount" step="0.01" required value="{{ example_data.loan_amount if example_data else '' }}">
-
-            <label for="loan_purpose">Loan Purpose:</label>
-            <input type="text" id="loan_purpose" name="loan_purpose" placeholder="e.g., Home Renovation, Business Expansion" required value="{{ example_data.loan_purpose if example_data else '' }}">
-
-            <label for="description">Application Description:</label>
-            <textarea id="description" name="description" placeholder="Provide a detailed description of your loan application..." required>{{ example_data.description if example_data else '' }}</textarea>
-
-            <label for="credit_score">Credit Score:</label>
-            <input type="number" id="credit_score" name="credit_score" placeholder="Enter your credit score" required value="{{ example_data.credit_score if example_data else '' }}">
-
-            <label for="annual_income">Annual Income:</label>
-            <input type="number" id="annual_income" name="annual_income" placeholder="Enter your annual income" step="0.01" required value="{{ example_data.annual_income if example_data else '' }}">
-
-            <label for="employment_status">Employment Status:</label>
-            <select id="employment_status" name="employment_status" required>
-                <option value="">Select Employment Status</option>
-                <option value="Employed" {% if example_data and example_data.employment_status == 'Employed' %}selected{% endif %}>Employed</option>
-                <option value="Self-employed" {% if example_data and example_data.employment_status == 'Self-employed' %}selected{% endif %}>Self-employed</option>
-                <option value="Unemployed" {% if example_data and example_data.employment_status == 'Unemployed' %}selected{% endif %}>Unemployed</option>
-                <option value="Other" {% if example_data and example_data.employment_status == 'Other' %}selected{% endif %}>Other</option>
-            </select>
-
-            <label for="loan_criteria">Loan Criteria (comma separated):</label>
-            <input type="text" id="loan_criteria" name="loan_criteria" placeholder="e.g., Standard Risk Assessment, Income Verification" value="{{ ', '.join(example_data.loan_criteria) if example_data and example_data.loan_criteria else '' }}">
-
-            <div class="form-buttons">
-                <input type="submit" value="Submit Application">
-            </div>
-
-            {% if USE_EXAMPLE_SELECTOR %}
-            <div class="example-selector">
-                <label for="example_type">Load Example Data:</label>
-                <select id="example_type" name="example_type" onchange="loadExample(this.value)">
-                    <option value="">Manual Input</option>
-                    <option value="positive">Positive Example</option>
-                    <option value="negative">Negative Example</option>
-                </select>
-            </div>
-            {% endif %}
-        </form>
+    <h2>Loan Application</h2>
+    <div class="law-note">
+        This form collects personal and sensitive personal data as defined under
+        <strong>IT Act 2000 Rule 2(1)(i)</strong> and <strong>DPDPA 2023</strong>.
+        Your data will be processed solely for loan eligibility assessment.
     </div>
 
-    <!-- Loader element -->
-    <div id="loader" class="loader"></div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}{% for category, message in messages %}
+            <div class="flash {{ category }}">{{ message }}</div>
+        {% endfor %}{% endif %}
+    {% endwith %}
 
-    <script>
-        function loadExample(exampleType) {
-            if (exampleType === 'positive') {
-                window.location.href = "{{ url_for('index', example_type='positive') }}";
-            } else if (exampleType === 'negative') {
-                window.location.href = "{{ url_for('index', example_type='negative') }}";
-            } else if (exampleType === '') {
-                window.location.href = "{{ url_for('index') }}";
-            }
+    {% if USE_EXAMPLE_SELECTOR %}
+    <div class="example-bar">
+        <label for="example_type">Load Example:</label>
+        <select id="example_type" onchange="loadExample(this.value)">
+            <option value="">Manual Input</option>
+            <option value="positive">Positive Example</option>
+            <option value="negative">Negative Example</option>
+        </select>
+    </div>
+    {% endif %}
+
+    {# ── action posts to apply_form route (POST /apply) ── #}
+    <form method="post" action="{{ url_for('apply_form') }}" id="applicationForm">
+
+        <div class="section-divider">Applicant Identity</div>
+
+        <div class="two-col">
+            <div>
+                <label for="applicant_id" class="required">Applicant ID</label>
+                <input type="text" id="applicant_id" name="applicant_id"
+                    placeholder="e.g. TANMAY-001" required
+                    value="{{ example_data.applicant_id if example_data else '' }}">
+            </div>
+            <div>
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" min="1" max="120"
+                    placeholder="e.g. 28"
+                    value="{{ example_data.age if example_data else '' }}">
+                <span style="font-size:.74em;color:#e65100">
+                    If under 18, parental consent required (DPDPA §9)
+                </span>
+            </div>
+        </div>
+
+        <label for="demographic" class="required">Demographic Group</label>
+        <select id="demographic" name="demographic" required>
+            <option value="">Select Group</option>
+            <option value="general"
+                {% if example_data and example_data.demographic == 'general' %}selected{% endif %}>General</option>
+            <option value="female"
+                {% if example_data and example_data.demographic == 'female' %}selected{% endif %}>Female</option>
+            <option value="group_A"
+                {% if example_data and example_data.demographic == 'group_A' %}selected{% endif %}>Group A</option>
+            <option value="group_B"
+                {% if example_data and example_data.demographic == 'group_B' %}selected{% endif %}>Group B</option>
+            <option value="group_C"
+                {% if example_data and example_data.demographic == 'group_C' %}selected{% endif %}>Group C</option>
+            <option value="group_Z_minority"
+                {% if example_data and example_data.demographic == 'group_Z_minority' %}selected{% endif %}>Minority Group</option>
+            <option value="SC"
+                {% if example_data and example_data.demographic == 'SC' %}selected{% endif %}>SC / ST</option>
+            <option value="NRI"
+                {% if example_data and example_data.demographic == 'NRI' %}selected{% endif %}>NRI</option>
+        </select>
+
+        <div class="section-divider">Financial Details</div>
+
+        <div class="two-col">
+            <div>
+                <label for="loan_amount" class="required">Loan Amount (₹)</label>
+                <input type="number" id="loan_amount" name="loan_amount"
+                    placeholder="e.g. 500000" step="0.01" required
+                    value="{{ example_data.loan_amount if example_data else '' }}">
+            </div>
+            <div>
+                <label for="annual_income" class="required">Annual Income (₹)</label>
+                <input type="number" id="annual_income" name="annual_income"
+                    placeholder="e.g. 800000" step="0.01" required
+                    value="{{ example_data.annual_income if example_data else '' }}">
+            </div>
+        </div>
+
+        <div class="two-col">
+            <div>
+                <label for="credit_score" class="required">Credit Score</label>
+                <input type="number" id="credit_score" name="credit_score"
+                    placeholder="300 – 900" min="300" max="900" required
+                    value="{{ example_data.credit_score if example_data else '' }}">
+            </div>
+            <div>
+                <label for="employment_status" class="required">Employment Status</label>
+                <select id="employment_status" name="employment_status" required>
+                    <option value="">Select</option>
+                    <option value="Employed"
+                        {% if example_data and example_data.employment_status == 'Employed' %}selected{% endif %}>Employed</option>
+                    <option value="Self-employed"
+                        {% if example_data and example_data.employment_status == 'Self-employed' %}selected{% endif %}>Self-employed</option>
+                    <option value="Unemployed"
+                        {% if example_data and example_data.employment_status == 'Unemployed' %}selected{% endif %}>Unemployed</option>
+                    <option value="Student"
+                        {% if example_data and example_data.employment_status == 'Student' %}selected{% endif %}>Student</option>
+                    <option value="Other"
+                        {% if example_data and example_data.employment_status == 'Other' %}selected{% endif %}>Other</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="section-divider">Loan Details</div>
+
+        <label for="loan_purpose" class="required">Loan Purpose</label>
+        <input type="text" id="loan_purpose" name="loan_purpose"
+            placeholder="e.g. Home Renovation, Business Expansion, Medical Treatment"
+            required
+            value="{{ example_data.loan_purpose if example_data else '' }}">
+
+        <label for="description">Description</label>
+        <textarea id="description" name="description"
+            placeholder="Provide additional details about your loan application...">{{ example_data.description if example_data else '' }}</textarea>
+
+        <label for="loan_criteria">Loan Criteria <span style="font-weight:400;color:#90a4ae">(comma-separated)</span></label>
+        <input type="text" id="loan_criteria" name="loan_criteria"
+            placeholder="e.g. Standard Risk Assessment, Income Verification"
+            value="{{ ', '.join(example_data.loan_criteria) if example_data and example_data.loan_criteria else '' }}">
+
+        <div class="section-divider">Sensitive Personal Data (SPDI) — IT Act Rule 2(1)(i)</div>
+
+        <label for="account_number">Bank Account Number
+            <span style="font-weight:400;color:#e65100;font-size:.82em"> (SPDI — IT Act)</span>
+        </label>
+        <input type="text" id="account_number" name="account_number"
+            placeholder="e.g. HDFC-00123456"
+            value="{{ example_data.account_number if example_data else '' }}">
+
+        {# ── DPDPA §6 Consent Checkbox ── #}
+        <div class="consent-box">
+            <p>⚠️ Consent for Sensitive Personal Data Processing (DPDPA 2023 Section 6)</p>
+            <p class="detail">
+                The following categories of sensitive personal data (SPDI) may be collected and
+                processed for loan assessment: bank account details, income information, and credit
+                history. Per <strong>DPDPA 2023 Section 6</strong> and <strong>IT Act Rule 5.3</strong>,
+                your explicit consent is required before processing SPDI.
+                You may withdraw consent at any time (DPDPA §6.4).
+            </p>
+            <div class="consent-row">
+                <input type="checkbox" id="spdi_consent" name="spdi_consent"
+                    {% if example_data and example_data.get('spdi_consent') %}checked{% endif %}>
+                <span>
+                    I give explicit, informed, and freely given consent for Acme Bank to collect and
+                    process my Sensitive Personal Data (bank details, income, credit history) solely
+                    for the purpose of this loan application assessment, in accordance with DPDPA 2023
+                    and the IT Act 2000.
+                </span>
+            </div>
+        </div>
+
+        <input type="submit" value="Submit Application">
+    </form>
+</div>
+
+<div class="loader-overlay" id="overlay"></div>
+<div class="loader" id="loader"></div>
+<div class="loading-text" id="loadingText">Running AI Governance Pipeline… (may take 30–60s)</div>
+
+<script>
+    function loadExample(exampleType) {
+        if (exampleType === 'positive') {
+            window.location.href = "{{ url_for('apply_form', example_type='positive') }}";
+        } else if (exampleType === 'negative') {
+            window.location.href = "{{ url_for('apply_form', example_type='negative') }}";
+        } else {
+            window.location.href = "{{ url_for('apply_form') }}";
         }
+    }
 
-        // Show the loader when the form is submitted
-        document.addEventListener("DOMContentLoaded", function() {
-            var form = document.getElementById("applicationForm");
-            if (form) {
-                form.addEventListener("submit", function() {
-                    document.getElementById("loader").style.display = "block";
-                });
-            }
-        });
-    </script>
+    document.getElementById("applicationForm").addEventListener("submit", function () {
+        document.getElementById("loader").style.display = "block";
+        document.getElementById("overlay").style.display = "block";
+        document.getElementById("loadingText").style.display = "block";
+    });
+</script>
 </body>
 </html>

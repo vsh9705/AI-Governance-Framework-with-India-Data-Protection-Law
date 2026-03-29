@@ -1,0 +1,287 @@
+INDIA DATA PROTECTION & IT ACT COMPLIANCE REFERENCE
+Applicable to: AI-driven systems processing personal/sensitive personal data of Indian residents.
+
+=======================================================================
+PART A: INFORMATION TECHNOLOGY ACT, 2000 (IT Act 2000) — Amended 2008
+=======================================================================
+
+SECTION 43A — Compensation for failure to protect data
+Rule: A body corporate that possesses, deals, or handles any sensitive personal data
+or information, and is negligent in implementing reasonable security practices,
+causing wrongful loss or wrongful gain to any person, shall be liable to pay
+damages by way of compensation.
+Applicable when: Any AI system that stores, processes, or transmits applicant
+financial/personal data without documented security practices.
+Penalty: Unlimited civil liability for damages caused.
+
+SECTION 66C — Punishment for identity theft
+Rule: Whoever, fraudulently or dishonestly makes use of the electronic signature,
+password, or any other unique identification feature of any other person shall be
+punished with imprisonment up to 3 years and a fine up to Rs. 1 lakh.
+Applicable when: AI systems that accept applicant identity credentials without
+adequate verification (e.g., Aadhaar, PAN, digital signatures) are at risk of
+enabling identity theft.
+
+SECTION 66E — Violation of privacy
+Rule: Whoever, intentionally or knowingly captures, publishes, or transmits the
+image of a private area of any person without his or her consent shall be punished
+with imprisonment up to 3 years or a fine up to Rs. 2 lakh.
+Applicable when: Any biometric or facial data collected during AI-based KYC.
+
+SECTION 72 — Breach of confidentiality and privacy
+Rule: Any person who has secured access to any electronic record, book, register,
+correspondence, information, document, or other material and discloses such material
+to any other person without the consent of the person concerned shall be punished
+with imprisonment up to 2 years or a fine up to Rs. 1 lakh.
+Applicable when: AI systems that share applicant data with third parties
+(credit bureaus, marketing firms) without explicit consent.
+
+SECTION 72A — Punishment for disclosure of information in breach of lawful contract
+Rule: Any person including an intermediary who, while providing services under the
+terms of a lawful contract, has secured access to any material containing personal
+information about another person, discloses such material without the consent of the
+person concerned, is liable for imprisonment up to 3 years or a fine up to Rs. 5 lakh.
+Applicable when: Loan processors, analytics vendors, or partners accessing
+applicant data must have explicit consent agreements.
+
+RULE 2(1)(i) — Definition of Sensitive Personal Data or Information (SPDI)
+IT (Reasonable Security Practices and Procedures and Sensitive Personal Data or
+Information) Rules, 2011 — Rule 2(1)(i)
+
+"Sensitive personal data or information" of a person means such personal information
+which consists of information relating to:
+  1. Passwords
+  2. Financial information such as bank account or credit card or debit card or
+     other payment instrument details
+  3. Physical, physiological and mental health condition
+  4. Sexual orientation
+  5. Medical records and history
+  6. Biometric information
+  7. Any detail relating to the above clauses as provided to body corporate for
+     providing service
+  8. Any of the information received under above clauses by body corporate for
+     processing, stored or processed under lawful contract or otherwise
+
+PROVIDED that any information that is freely available or accessible in public
+domain or furnished under the Right to Information Act, 2005 or any other law for
+the time being in force shall NOT be regarded as sensitive personal data or
+information for the purposes of these rules.
+
+IMPORTANT CLASSIFICATION NOTE:
+The following are NOT SPDI under Rule 2(1)(i):
+  - Name, age, gender, demographic group, religion, nationality
+  - Email address, phone number, residential address
+  - Loan amount requested (applicant-provided figure, not a financial account detail)
+  - Income stated by applicant (applicant-provided figure, not a financial account detail)
+  - Credit score (derived metric, not a financial account detail)
+  - Employment status, loan purpose, description
+  - Application ID, loan status, boolean flags
+
+The following ARE SPDI under Rule 2(1)(i):
+  - Bank account number (financial account detail enabling account access)
+  - Credit card number (financial account detail enabling account access)
+  - Debit card number (financial account detail enabling account access)
+  - Health condition, medical history, mental health status (health condition)
+  - Biometric data, fingerprint, iris scan, face scan (biometric information)
+  - Password, PIN, secret question answer (passwords)
+  - Sexual orientation
+
+RULE 2(1)(w) — Definition of Personal Data
+"Personal data" means any data about or relating to a natural person who is
+directly or indirectly identifiable, having regard to any characteristic, trait,
+attribute or any other feature of the identity of such natural person, or any
+combination of such features, or any combination of such features with any other
+information.
+
+RULE 4 — Body Corporate to provide policy for privacy and disclosure of information
+Every body corporate or person on its behalf who collects, receives, possess, stores,
+deals or handles information of provider of information, shall provide a privacy
+policy for handling of or dealing in personal information including sensitive personal
+data or information and ensure that the same is available for view by such providers
+of information who have provided such information under lawful contract.
+
+RULE 5 & 6 — IT (Reasonable Security Practices and Procedures and Sensitive Personal
+Data or Information) Rules, 2011
+Sensitive Personal Data or Information (SPDI) includes:
+  - Passwords
+  - Financial information (bank account, credit card, debit card details)
+  - Physical, physiological, or mental health condition
+  - Sexual orientation
+  - Medical records and history
+  - Biometric information
+Rule 5.1: Collect SPDI only for a lawful purpose connected with a function or activity.
+Rule 5.2: Must maintain a privacy policy for handling or dealing with personal information.
+Rule 5.3: Must take consent in writing or by fax or email before collecting sensitive
+personal data or information.
+Rule 5.4: The information collected must be used only for the purpose for which it was collected.
+Rule 5.5: Must not retain SPDI for longer than is required for the purposes for which it was collected.
+Rule 5.6: Must allow the data subject to review, correct, or amend information as necessary.
+Rule 5.7: Must allow data subjects to review the information they have provided and withdraw
+consent. Upon withdrawal, the body corporate shall not use the data further.
+Rule 6.1: Disclose SPDI to third parties only with prior permission from the data subject.
+Rule 6.2: Third parties receiving SPDI must maintain the same level of data protection
+as the original body corporate.
+
+=======================================================================
+PART B: DIGITAL PERSONAL DATA PROTECTION ACT, 2023 (DPDPA 2023)
+=======================================================================
+
+SECTION 2 — Definitions
+- Data Principal: The individual to whom personal data relates.
+- Data Fiduciary: Any person who determines the purpose and means of processing personal data.
+- Personal Data: Any data about an individual who is identifiable by or in relation to such data.
+- Processing: Collection, storage, use, sharing, disclosure, deletion of personal data.
+- Consent Manager: A registered entity that enables Data Principals to give, manage,
+  review, and withdraw consent.
+
+SECTION 4 — Grounds for processing personal data
+Rule: Personal data may be processed only for a lawful purpose for which the Data
+Principal has given consent, or for a legitimate use.
+Applicable when: Every piece of applicant data processed by the AI must have a
+documented lawful basis.
+Violation: Processing without consent or legitimate use is unlawful under this section.
+
+SECTION 5 — Notice
+Rule: Before seeking consent, a Data Fiduciary must give a notice containing:
+  (a) The personal data to be collected and the purpose of processing
+  (b) The manner in which the Data Principal may exercise rights
+  (c) The manner in which a complaint may be made to the Data Protection Board
+Applicable when: Loan application intake form must clearly disclose what data is collected.
+Violation: Collecting data without prior notice is a Section 5 violation.
+
+SECTION 6 — Consent
+Rule 6.1: Consent must be free, specific, informed, unconditional, and unambiguous
+with a clear affirmative action.
+Rule 6.2: Consent must be limited to personal data necessary for the purpose.
+Rule 6.3: Where consent is given to a Consent Manager, the Data Fiduciary shall be
+accountable for demonstrating that consent was given.
+Rule 6.4: Consent may be withdrawn at any time. Processing up to withdrawal remains lawful.
+Rule 6.5: The Data Principal must be provided a mechanism to withdraw consent as easily
+as it was given.
+Rule 6.6: If Data Principal is a child, consent of parent or guardian is required.
+Applicable when: Checkbox consent for SPDI processing is mandatory. If spdi_consent
+is false and SPDI fields are present, this is a Section 6 violation.
+
+SECTION 7 — Legitimate uses (processing without consent)
+Covers: Compliance with court judgments, state functions, medical emergencies,
+employment purposes, and public interest activities.
+Note: Loan processing by a registered NBFC or bank may qualify under legitimate use
+if the processing is strictly necessary for the loan contract.
+
+SECTION 8 — General obligations of Data Fiduciary
+Rule 8.1: Ensure accuracy and completeness of personal data.
+Rule 8.2: Implement appropriate security safeguards to prevent personal data breach.
+Rule 8.3: Implement appropriate technical and organisational measures.
+Rule 8.4: Notify the Data Protection Board and affected Data Principals in the event
+of a personal data breach, in such form and manner as may be prescribed.
+Rule 8.5: Not retain personal data beyond the period necessary for the stated purpose.
+Rule 8.6: Publish the business contact information of a Data Protection Officer or
+other person able to respond to Data Principals.
+Rule 8.7: Erase personal data upon the Data Principal's request or when the
+purpose is no longer served.
+Rule 8.9: Display data retention policy prominently.
+Applicable when: AI system must have breach notification, erasure, and retention
+procedures documented.
+
+SECTION 9 — Processing of personal data of children
+Rule: Data Fiduciary must obtain verifiable consent from a parent or guardian
+before processing data of a child (under 18).
+Rule: Data Fiduciary must not track, monitor, or engage in behavioural targeting
+of children or advertise to children based on their personal data.
+Rule: Processing that could harm a child's well-being is prohibited.
+Applicable when: Any applicant with age < 18 triggers this section. Parental consent
+must be documented. children_data_risk = true if age < 18.
+
+SECTION 10 — Significant Data Fiduciary obligations
+Rule: The Central Government may notify any Data Fiduciary as a Significant Data
+Fiduciary based on volume of data processed, sensitivity of data, national security
+risk, or risk to rights of Data Principals.
+Obligations include:
+  - Appoint a Data Protection Officer based in India
+  - Appoint an independent Data Auditor
+  - Conduct periodic Data Protection Impact Assessments (DPIA)
+Applicable when: High-volume AI systems processing large amounts of SPDI must
+conduct DPIA. dpia_required = true if spdi_count >= 5.
+
+SECTION 11 — Consent of the Data Principal
+Every request for consent shall be presented separately from any other matter,
+in a clear and plain language. The request must specify the personal data sought
+and the purpose of processing.
+
+SECTION 12 — Right of the Data Principal to access information
+Rule: Data Principal has the right to obtain:
+  (a) A summary of personal data being processed and the processing activities
+  (b) Identities of all Data Fiduciaries with whom data has been shared
+  (c) Any other information related to their personal data as may be prescribed.
+Applicable when: System must provide a /rights/access endpoint responding within
+30 days.
+
+SECTION 13 — Right to correction and erasure
+Rule: Data Principal may request:
+  (a) Correction of inaccurate or misleading personal data
+  (b) Completion of incomplete personal data
+  (c) Updating of personal data
+  (d) Erasure of personal data that is no longer necessary
+Applicable when: System must provide a /rights/erasure endpoint. Erasure requests
+must be honoured unless retention is required by law.
+
+SECTION 14 — Right of grievance redressal
+Rule: Data Principal has the right to have grievances redressed within a reasonable
+time not exceeding 30 days. Data Fiduciary must publish grievance redressal mechanism.
+
+SECTION 16 — Transfer of personal data outside India
+Rule: Personal data may be transferred outside India only to countries notified
+by the Central Government as permitted recipients.
+Rule: Cross-border transfer of SPDI requires additional safeguards.
+Applicable when: If data_processing_location, analytics_vendor, or cloud_storage
+field contains a reference to a non-India location such as USA, UK, Europe, AWS,
+GCP, Azure, or any foreign country, this section is triggered.
+cross_border_risk = true if any location field contains a non-India keyword.
+Violation: Transferring data to a non-approved country is a Section 16 violation.
+
+SECTION 17 — Exemptions
+The Central Government may exempt certain Data Fiduciaries from provisions
+of this Act in the interest of sovereignty, security, or public order.
+
+SECTIONS 25 to 40 — Data Protection Board of India (DPBI)
+The Board is established to adjudicate on personal data breaches and complaints.
+Penalties:
+  - Failure to implement security safeguards (Section 8): up to Rs. 250 crore
+  - Failure to notify a personal data breach: up to Rs. 200 crore
+  - Non-compliance with children's data rules (Section 9): up to Rs. 200 crore
+  - Non-compliance with significant data fiduciary obligations (Section 10): up to Rs. 150 crore
+  - General non-compliance with other provisions: up to Rs. 50 crore
+
+=======================================================================
+PART C: DIGITAL SIGNATURE & ELECTRONIC GOVERNANCE (IT Act 2000, Ch. II & VI)
+=======================================================================
+
+SECTION 3 — Authentication of electronic records
+Electronic records may be authenticated by use of an asymmetric crypto system
+and hash function (Digital Signature). Any AI system accepting digitally signed
+documents must verify the digital signature via a licensed Certifying Authority (CA).
+
+SECTION 5 — Legal recognition of digital signatures
+Digital signatures on electronic records are legally equivalent to handwritten
+signatures. Loan contracts signed digitally are legally binding.
+
+SECTION 6 — Use of digital signatures by Government
+Government-facing AI systems (e.g., Aadhaar-linked loan verifications) must
+comply with NIC/CCA standards for electronic governance.
+
+SECTION 35 — Certifying Authority
+Only a licensed Certifying Authority (CA) can issue Digital Signature Certificates.
+AI systems must not accept self-signed certificates for financial transactions.
+
+=======================================================================
+PART D: AMENDMENT TO INDIAN EVIDENCE ACT 1872 (via IT Act 2000)
+=======================================================================
+
+SECTION 65B — Admissibility of electronic records
+Electronic records are admissible as evidence if accompanied by a certificate
+from a responsible official stating:
+  (a) The computer output was produced during a period of regular use
+  (b) The computer was operating properly during that period
+  (c) The information in the electronic record reproduces information in the computer
+Applicable when: AI-generated loan decisions stored as electronic records must
+meet Section 65B requirements to be admissible as evidence in disputes.
