@@ -1,153 +1,6 @@
 [
     {
-        "applicant_id": "2023-VG-001+2026-03-27-04-58",
-        "demographic": "general",
-        "loan_amount": 2000000.0,
-        "income": 200000.0,
-        "age": 28,
-        "loan_purpose": "Starting a business in Underserved Community",
-        "loan_status": "pending",
-        "risk_flag": "Bias likely for: general",
-        "description": "Seeking a substantial loan to launch a new retail business in a historically underserved community. This venture aims to create local jobs and stimulate economic growth in an area with limited opportunities.",
-        "credit_score": 620,
-        "employment_status": "Self-employed",
-        "loan_criteria": [
-            "Limited Credit History Accepted",
-            "Personal Network Referral Required",
-            "High Interest Rate Tier",
-            "Geographic Zone Restriction: Zone 4",
-            "Marital Status: Single applicants not preferred"
-        ],
-        "spdi_consent": true,
-        "privacy_classification": {
-            "spdi_count": 0,
-            "consent_required": false,
-            "dpia_required": false,
-            "field_classes": {
-                "applicant_id": "NON_PERSONAL_DATA",
-                "demographic": "PERSONAL_DATA",
-                "loan_amount": "PERSONAL_DATA",
-                "income": "PERSONAL_DATA",
-                "age": "PERSONAL_DATA",
-                "loan_purpose": "PERSONAL_DATA",
-                "description": "NON_PERSONAL_DATA",
-                "credit_score": "PERSONAL_DATA",
-                "employment_status": "PERSONAL_DATA",
-                "loan_criteria": "NON_PERSONAL_DATA",
-                "spdi_consent": "NON_PERSONAL_DATA"
-            }
-        },
-        "ethics_review": {
-            "ethical": false,
-            "reasons": [
-                "UNETHICAL: The loan criteria include \"Marital Status: Single applicants not preferred\", which violates the guideline of treating customers fairly and without discrimination, as stated in Section I, \"Treat Customers Fairly\" and implicitly in \"Fair Labor Practices\" in Section IV."
-            ]
-        },
-        "compliance_report": {
-            "is_compliant": false,
-            "non_compliant_regulations": [
-                "Anti-Discrimination Act - Regulation ADA456"
-            ],
-            "reasons": [
-                "The decision criteria include 'Marital Status: Single applicants not preferred', which directly discriminates against applicants based on their marital status, a protected characteristic."
-            ]
-        },
-        "india_compliance_report": {
-            "is_compliant": true,
-            "violated_sections": [],
-            "reasons": [],
-            "cross_border_risk": false,
-            "children_data_risk": false
-        },
-        "gdpr_compliance_report": {
-            "is_compliant": true,
-            "violated_articles": [],
-            "reasons": [],
-            "automated_decision_risk": false,
-            "right_to_be_forgotten_applicable": false,
-            "lawful_basis_documented": true
-        },
-        "final_decision": "requires further review"
-    },
-    {
-        "applicant_id": "APP-RISK-005",
-        "demographic": "general",
-        "loan_amount": 5000000,
-        "income": 50000,
-        "age": 45,
-        "loan_purpose": "undisclosed",
-        "loan_status": "pending",
-        "risk_flag": "No bias for: general",
-        "account_number": "AXIS-00111222",
-        "previous_fraud_flag": true,
-        "cash_transactions_last_month": 980000,
-        "kyc_status": "incomplete",
-        "pep_status": "politically_exposed_person",
-        "loan_criteria": [
-            "Standard Risk Assessment",
-            "Income Verification"
-        ],
-        "privacy_classification": {
-            "spdi_count": 1,
-            "consent_required": true,
-            "dpia_required": false,
-            "field_classes": {
-                "applicant_id": "NON_PERSONAL_DATA",
-                "demographic": "PERSONAL_DATA",
-                "loan_amount": "PERSONAL_DATA",
-                "income": "PERSONAL_DATA",
-                "age": "PERSONAL_DATA",
-                "loan_purpose": "PERSONAL_DATA",
-                "account_number": "SENSITIVE_PERSONAL_DATA",
-                "previous_fraud_flag": "NON_PERSONAL_DATA",
-                "cash_transactions_last_month": "PERSONAL_DATA",
-                "kyc_status": "NON_PERSONAL_DATA",
-                "pep_status": "PERSONAL_DATA",
-                "loan_criteria": "NON_PERSONAL_DATA"
-            }
-        },
-        "ethics_review": {
-            "ethical": false,
-            "reasons": [
-                "UNETHICAL: The loan purpose is \"undisclosed\", which violates the guideline of transparency and fair practices as stated in Section I, Customer Centricity and Fair Practices, specifically the principle of treating customers fairly by providing clear and understandable information about loan purposes."
-            ]
-        },
-        "compliance_report": {
-            "is_compliant": false,
-            "non_compliant_regulations": [
-                "Anti-Discrimination Act - Regulation ADA456"
-            ],
-            "reasons": [
-                "The decision reason explicitly mentions 'discriminatory_criterion', which directly violates the Anti-Discrimination Act by indicating the use of potentially biased criteria in the loan decision process."
-            ]
-        },
-        "india_compliance_report": {
-            "is_compliant": false,
-            "violated_sections": [
-                "DPDPA Section 6 / IT Act Rule 5.3",
-                "IT Act Section 43A / BSA Rule 3.1",
-                "DPDPA Section 4"
-            ],
-            "reasons": [
-                "Application contains 1 SPDI field(s) but spdi_consent is not true.",
-                "KYC status is 'incomplete'.",
-                "Loan purpose is undisclosed \u2014 no lawful purpose established."
-            ],
-            "cross_border_risk": false,
-            "children_data_risk": false
-        },
-        "gdpr_compliance_report": {
-            "is_compliant": true,
-            "violated_articles": [],
-            "reasons": [],
-            "automated_decision_risk": false,
-            "right_to_be_forgotten_applicable": false,
-            "lawful_basis_documented": true
-        },
-        "final_decision": "requires further review"
-    },
-    {
-        "applicant_id": "APP-NORMAL-001",
+        "applicant_id": "CLEAN-001",
         "demographic": "general",
         "loan_amount": 300000,
         "income": 75000,
@@ -156,188 +9,8 @@
         "loan_status": "pending",
         "risk_flag": "No bias for: general",
         "account_number": "HDFC-00123456",
-        "employment_status": "salaried",
+        "employment_status": "Employed",
         "credit_score": 720,
-        "loan_criteria": [
-            "Standard Risk Assessment",
-            "Income Verification"
-        ],
-        "privacy_classification": {
-            "spdi_count": 1,
-            "consent_required": true,
-            "dpia_required": false,
-            "field_classes": {
-                "applicant_id": "NON_PERSONAL_DATA",
-                "demographic": "PERSONAL_DATA",
-                "loan_amount": "PERSONAL_DATA",
-                "income": "PERSONAL_DATA",
-                "age": "PERSONAL_DATA",
-                "loan_purpose": "PERSONAL_DATA",
-                "account_number": "SENSITIVE_PERSONAL_DATA",
-                "employment_status": "PERSONAL_DATA",
-                "credit_score": "PERSONAL_DATA",
-                "loan_criteria": "NON_PERSONAL_DATA"
-            }
-        },
-        "ethics_review": {
-            "ethical": true,
-            "reasons": []
-        },
-        "compliance_report": {
-            "is_compliant": true,
-            "non_compliant_regulations": [],
-            "reasons": []
-        },
-        "india_compliance_report": {
-            "is_compliant": false,
-            "violated_sections": [
-                "DPDPA Section 6 / IT Act Rule 5.3"
-            ],
-            "reasons": [
-                "Application contains 1 SPDI field(s) but spdi_consent is not true."
-            ],
-            "cross_border_risk": false,
-            "children_data_risk": false
-        },
-        "gdpr_compliance_report": {
-            "is_compliant": true,
-            "violated_articles": [],
-            "reasons": [],
-            "automated_decision_risk": false,
-            "right_to_be_forgotten_applicable": false,
-            "lawful_basis_documented": true
-        },
-        "final_decision": "requires further review"
-    },
-    {
-        "applicant_id": "APP-NORMAL-001",
-        "demographic": "general",
-        "loan_amount": 300000,
-        "income": 75000,
-        "age": 32,
-        "loan_purpose": "home renovation",
-        "loan_status": "pending",
-        "risk_flag": "No bias for: general",
-        "raw_text": "{\r\n  \"applicant_id\": \"APP-NORMAL-001\",\r\n  \"demographic\": \"general\",\r\n  \"loan_amount\": 300000,\r\n  \"income\": 75000,\r\n  \"age\": 32,\r\n  \"loan_purpose\": \"home renovation\",\r\n  \"account_number\": \"HDFC-00123456\",\r\n  \"employment_status\": \"salaried\",\r\n  \"credit_score\": 720\r\n\"spdi_consent\": true\r\n}",
-        "loan_criteria": [
-            "Standard Risk Assessment",
-            "Income Verification"
-        ],
-        "privacy_classification": {
-            "spdi_count": 0,
-            "consent_required": false,
-            "dpia_required": false,
-            "field_classes": {
-                "applicant_id": "NON_PERSONAL_DATA",
-                "demographic": "PERSONAL_DATA",
-                "loan_amount": "PERSONAL_DATA",
-                "income": "PERSONAL_DATA",
-                "age": "PERSONAL_DATA",
-                "loan_purpose": "PERSONAL_DATA",
-                "raw_text": "NON_PERSONAL_DATA",
-                "loan_criteria": "NON_PERSONAL_DATA"
-            }
-        },
-        "ethics_review": {
-            "ethical": true,
-            "reasons": []
-        },
-        "compliance_report": {
-            "is_compliant": true,
-            "non_compliant_regulations": [],
-            "reasons": []
-        },
-        "india_compliance_report": {
-            "is_compliant": true,
-            "violated_sections": [],
-            "reasons": [],
-            "cross_border_risk": false,
-            "children_data_risk": false
-        },
-        "gdpr_compliance_report": {
-            "is_compliant": true,
-            "violated_articles": [],
-            "reasons": [],
-            "automated_decision_risk": false,
-            "right_to_be_forgotten_applicable": false,
-            "lawful_basis_documented": true
-        },
-        "final_decision": "approved"
-    },
-    {
-        "applicant_id": "APP-NORMAL-444",
-        "demographic": "general",
-        "loan_amount": 300000,
-        "income": 75000,
-        "age": 32,
-        "loan_purpose": "home renovation",
-        "loan_status": "pending",
-        "risk_flag": "No bias for: general",
-        "account_number": "HDFC-00123456",
-        "employment_status": "salaried",
-        "credit_score": 720,
-        "spdi_consent": true,
-        "loan_criteria": [
-            "Standard Risk Assessment",
-            "Income Verification"
-        ],
-        "privacy_classification": {
-            "spdi_count": 1,
-            "consent_required": false,
-            "dpia_required": false,
-            "field_classes": {
-                "applicant_id": "NON_PERSONAL_DATA",
-                "demographic": "PERSONAL_DATA",
-                "loan_amount": "PERSONAL_DATA",
-                "income": "PERSONAL_DATA",
-                "age": "PERSONAL_DATA",
-                "loan_purpose": "PERSONAL_DATA",
-                "account_number": "SENSITIVE_PERSONAL_DATA",
-                "employment_status": "PERSONAL_DATA",
-                "credit_score": "PERSONAL_DATA",
-                "spdi_consent": "NON_PERSONAL_DATA",
-                "loan_criteria": "NON_PERSONAL_DATA"
-            }
-        },
-        "ethics_review": {
-            "ethical": true,
-            "reasons": []
-        },
-        "compliance_report": {
-            "is_compliant": true,
-            "non_compliant_regulations": [],
-            "reasons": []
-        },
-        "india_compliance_report": {
-            "is_compliant": true,
-            "violated_sections": [],
-            "reasons": [],
-            "cross_border_risk": false,
-            "children_data_risk": false
-        },
-        "gdpr_compliance_report": {
-            "is_compliant": true,
-            "violated_articles": [],
-            "reasons": [],
-            "automated_decision_risk": false,
-            "right_to_be_forgotten_applicable": false,
-            "lawful_basis_documented": true
-        },
-        "final_decision": "approved"
-    },
-    {
-        "applicant_id": "GDPR-FAIL-001",
-        "demographic": "general",
-        "loan_amount": 400000,
-        "income": 60000,
-        "age": 30,
-        "loan_purpose": "vehicle purchase",
-        "loan_status": "pending",
-        "risk_flag": "No bias for: general",
-        "account_number": "HDFC-00123456",
-        "human_review_available": false,
-        "lawful_basis_for_processing": "none documented",
-        "privacy_notice_given": false,
         "spdi_consent": true,
         "loan_criteria": [
             "Standard Risk Assessment",
@@ -355,9 +28,67 @@
                 "age": "PERSONAL_DATA",
                 "loan_purpose": "PERSONAL_DATA",
                 "account_number": "SENSITIVE_PERSONAL_DATA",
-                "human_review_available": "NON_PERSONAL_DATA",
-                "lawful_basis_for_processing": "NON_PERSONAL_DATA",
-                "privacy_notice_given": "NON_PERSONAL_DATA",
+                "employment_status": "PERSONAL_DATA",
+                "credit_score": "PERSONAL_DATA",
+                "spdi_consent": "NON_PERSONAL_DATA",
+                "loan_criteria": "NON_PERSONAL_DATA"
+            }
+        },
+        "ethics_review": {
+            "ethical": true,
+            "reasons": []
+        },
+        "compliance_report": {
+            "is_compliant": true,
+            "non_compliant_regulations": [],
+            "reasons": []
+        },
+        "india_compliance_report": {
+            "is_compliant": true,
+            "violated_sections": [],
+            "reasons": [],
+            "cross_border_risk": false,
+            "children_data_risk": false
+        },
+        "gdpr_compliance_report": {
+            "is_compliant": true,
+            "violated_articles": [],
+            "reasons": [],
+            "automated_decision_risk": false,
+            "right_to_be_forgotten_applicable": false,
+            "lawful_basis_documented": true
+        },
+        "final_decision": "approved"
+    },
+    {
+        "applicant_id": "CONSENT-FAIL-002",
+        "demographic": "general",
+        "loan_amount": 500000,
+        "income": 90000,
+        "age": 28,
+        "loan_purpose": "business expansion",
+        "loan_status": "pending",
+        "risk_flag": "No bias for: general",
+        "account_number": "SBI-00987654",
+        "credit_card_number": "4111-1111-1111-1234",
+        "spdi_consent": false,
+        "loan_criteria": [
+            "Standard Risk Assessment",
+            "Income Verification"
+        ],
+        "privacy_classification": {
+            "spdi_count": 2,
+            "consent_required": true,
+            "dpia_required": false,
+            "field_classes": {
+                "applicant_id": "PERSONAL_DATA",
+                "demographic": "PERSONAL_DATA",
+                "loan_amount": "PERSONAL_DATA",
+                "income": "PERSONAL_DATA",
+                "age": "PERSONAL_DATA",
+                "loan_purpose": "PERSONAL_DATA",
+                "account_number": "SENSITIVE_PERSONAL_DATA",
+                "credit_card_number": "SENSITIVE_PERSONAL_DATA",
                 "spdi_consent": "NON_PERSONAL_DATA",
                 "loan_criteria": "NON_PERSONAL_DATA"
             }
@@ -365,7 +96,7 @@
         "ethics_review": {
             "ethical": false,
             "reasons": [
-                "UNETHICAL: The loan application lacks transparency and fairness, as indicated by the absence of a lawful basis for processing and a privacy notice, which violates the guidelines on Customer Centricity and Fair Practices, specifically the principle of treating customers fairly and providing clear, accurate, and understandable information."
+                "UNETHICAL: The loan application lacks consent for sensitive personal data (SPDI) as indicated by \"spdi_consent\": false, which violates the guideline on Data Privacy and Confidentiality (I. Customer Centricity and Fair Practices)."
             ]
         },
         "compliance_report": {
@@ -378,51 +109,47 @@
             ]
         },
         "india_compliance_report": {
-            "is_compliant": true,
-            "violated_sections": [],
-            "reasons": [],
+            "is_compliant": false,
+            "violated_sections": [
+                "DPDPA Section 6 / IT Act Rule 5.3"
+            ],
+            "reasons": [
+                "Application contains 2 SPDI field(s) but spdi_consent is not true."
+            ],
             "cross_border_risk": false,
             "children_data_risk": false
         },
         "gdpr_compliance_report": {
-            "is_compliant": false,
-            "violated_articles": [
-                "Article 22",
-                "Article 6",
-                "Article 13/14"
-            ],
-            "reasons": [
-                "Loan decision is fully automated with no human review option.",
-                "lawful_basis_for_processing is set to 'none documented'.",
-                "privacy_notice_given is explicitly false."
-            ],
-            "automated_decision_risk": true,
-            "right_to_be_forgotten_applicable": false,
-            "lawful_basis_documented": false
+            "is_compliant": true,
+            "violated_articles": [],
+            "reasons": [],
+            "automated_decision_risk": false,
+            "right_to_be_forgotten_applicable": true,
+            "lawful_basis_documented": true
         },
-        "final_decision": "requires further review"
+        "final_decision": "rejected",
+        "auditor_comments": ""
     },
     {
-        "applicant_id": "APP-RISK-005",
+        "applicant_id": "CLEAN-001",
         "demographic": "general",
-        "loan_amount": 5000000,
-        "income": 50000,
-        "age": 45,
-        "loan_purpose": "undisclosed",
+        "loan_amount": 300000,
+        "income": 75000,
+        "age": 32,
+        "loan_purpose": "home renovation",
         "loan_status": "pending",
         "risk_flag": "No bias for: general",
-        "account_number": "AXIS-00111222",
-        "previous_fraud_flag": true,
-        "cash_transactions_last_month": 980000,
-        "kyc_status": "incomplete",
-        "pep_status": "politically_exposed_person",
+        "account_number": "HDFC-00123456",
+        "employment_status": "Employed",
+        "credit_score": 720,
+        "spdi_consent": true,
         "loan_criteria": [
             "Standard Risk Assessment",
             "Income Verification"
         ],
         "privacy_classification": {
             "spdi_count": 1,
-            "consent_required": true,
+            "consent_required": false,
             "dpia_required": false,
             "field_classes": {
                 "applicant_id": "NON_PERSONAL_DATA",
@@ -432,17 +159,75 @@
                 "age": "PERSONAL_DATA",
                 "loan_purpose": "PERSONAL_DATA",
                 "account_number": "SENSITIVE_PERSONAL_DATA",
-                "previous_fraud_flag": "NON_PERSONAL_DATA",
-                "cash_transactions_last_month": "PERSONAL_DATA",
-                "kyc_status": "NON_PERSONAL_DATA",
-                "pep_status": "PERSONAL_DATA",
+                "employment_status": "PERSONAL_DATA",
+                "credit_score": "PERSONAL_DATA",
+                "spdi_consent": "NON_PERSONAL_DATA",
+                "loan_criteria": "NON_PERSONAL_DATA"
+            }
+        },
+        "ethics_review": {
+            "ethical": true,
+            "reasons": []
+        },
+        "compliance_report": {
+            "is_compliant": true,
+            "non_compliant_regulations": [],
+            "reasons": []
+        },
+        "india_compliance_report": {
+            "is_compliant": true,
+            "violated_sections": [],
+            "reasons": [],
+            "cross_border_risk": false,
+            "children_data_risk": false
+        },
+        "gdpr_compliance_report": {
+            "is_compliant": true,
+            "violated_articles": [],
+            "reasons": [],
+            "automated_decision_risk": false,
+            "right_to_be_forgotten_applicable": false,
+            "lawful_basis_documented": true
+        },
+        "final_decision": "approved"
+    },
+    {
+        "applicant_id": "CONSENT-FAIL-002",
+        "demographic": "general",
+        "loan_amount": 500000,
+        "income": 90000,
+        "age": 28,
+        "loan_purpose": "business expansion",
+        "loan_status": "pending",
+        "risk_flag": "No bias for: general",
+        "account_number": "SBI-00987654",
+        "credit_card_number": "4111-1111-1111-1234",
+        "spdi_consent": false,
+        "loan_criteria": [
+            "Standard Risk Assessment",
+            "Income Verification"
+        ],
+        "privacy_classification": {
+            "spdi_count": 2,
+            "consent_required": true,
+            "dpia_required": false,
+            "field_classes": {
+                "applicant_id": "PERSONAL_DATA",
+                "demographic": "PERSONAL_DATA",
+                "loan_amount": "PERSONAL_DATA",
+                "income": "PERSONAL_DATA",
+                "age": "PERSONAL_DATA",
+                "loan_purpose": "PERSONAL_DATA",
+                "account_number": "SENSITIVE_PERSONAL_DATA",
+                "credit_card_number": "SENSITIVE_PERSONAL_DATA",
+                "spdi_consent": "NON_PERSONAL_DATA",
                 "loan_criteria": "NON_PERSONAL_DATA"
             }
         },
         "ethics_review": {
             "ethical": false,
             "reasons": [
-                "UNETHICAL: The loan purpose is \"undisclosed\", which violates the guideline of transparency and fair practices as stated in Section I, \"Customer Centricity and Fair Practices\", specifically the principle of providing clear, accurate, and understandable information about loan purposes."
+                "UNETHICAL: The loan application lacks consent for sensitive personal data (SPDI), specifically the credit card number and account number, which is required according to the guidelines under \"Data Privacy and Confidentiality\" (I. Customer Centricity and Fair Practices)."
             ]
         },
         "compliance_report": {
@@ -451,34 +236,26 @@
                 "Anti-Discrimination Act - Regulation ADA456"
             ],
             "reasons": [
-                "The decision reason explicitly mentions 'discriminatory_criterion', which directly violates the Anti-Discrimination Act by indicating the use of potentially biased criteria in the loan decision-making process."
+                "The decision reason 'discriminatory_criterion' suggests that the loan decision may be based on a criterion that discriminates against the applicant, which is prohibited by the Anti-Discrimination Act."
             ]
         },
         "india_compliance_report": {
             "is_compliant": false,
             "violated_sections": [
-                "DPDPA Section 6 / IT Act Rule 5.3",
-                "IT Act Section 43A / BSA Rule 3.1",
-                "DPDPA Section 4"
+                "DPDPA Section 6 / IT Act Rule 5.3"
             ],
             "reasons": [
-                "Application contains 1 SPDI field(s) but spdi_consent is not true.",
-                "KYC status is 'incomplete'.",
-                "Loan purpose is undisclosed \u2014 no lawful purpose established."
+                "Application contains 2 SPDI field(s) but spdi_consent is not true."
             ],
             "cross_border_risk": false,
             "children_data_risk": false
         },
         "gdpr_compliance_report": {
-            "is_compliant": false,
-            "violated_articles": [
-                "Error during GDPR check"
-            ],
-            "reasons": [
-                "Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01k4axkdw4f8brgx1y8hhdx2mq` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98466, Requested 2399. Please try again in 12m27.36s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
-            ],
+            "is_compliant": true,
+            "violated_articles": [],
+            "reasons": [],
             "automated_decision_risk": false,
-            "right_to_be_forgotten_applicable": false,
+            "right_to_be_forgotten_applicable": true,
             "lawful_basis_documented": true
         },
         "final_decision": "requires further review"
@@ -523,37 +300,37 @@
         "ethics_review": {
             "ethical": false,
             "reasons": [
-                "Error: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01k4axkdw4f8brgx1y8hhdx2mq` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99033, Requested 1577. Please try again in 8m47.04s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+                "UNETHICAL: The loan purpose is \"undisclosed\", which violates the guideline of transparency and fair practices as stated in Section I, \"Customer Centricity and Fair Practices\", specifically the principle of providing \"clear, accurate, and understandable information about our products and services\"."
             ]
         },
         "compliance_report": {
             "is_compliant": false,
             "non_compliant_regulations": [
-                "Error"
+                "Anti-Discrimination Act - Regulation ADA456"
             ],
             "reasons": [
-                "Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01k4axkdw4f8brgx1y8hhdx2mq` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99033, Requested 1230. Please try again in 3m47.232s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+                "The decision reason 'discriminatory_criterion' suggests that the loan decision may be based on a criterion that discriminates against the applicant, which is prohibited by the Anti-Discrimination Act."
             ]
         },
         "india_compliance_report": {
             "is_compliant": false,
             "violated_sections": [
-                "Error during India compliance check"
+                "DPDPA Section 6 / IT Act Rule 5.3",
+                "IT Act Section 43A / BSA Rule 3.1",
+                "DPDPA Section 4"
             ],
             "reasons": [
-                "Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01k4axkdw4f8brgx1y8hhdx2mq` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99033, Requested 2499. Please try again in 22m3.648s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+                "Application contains 1 SPDI field(s) but spdi_consent is not true.",
+                "KYC status is 'incomplete'.",
+                "Loan purpose is undisclosed \u2014 no lawful purpose established."
             ],
             "cross_border_risk": false,
             "children_data_risk": false
         },
         "gdpr_compliance_report": {
-            "is_compliant": false,
-            "violated_articles": [
-                "Error during GDPR check"
-            ],
-            "reasons": [
-                "Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01k4axkdw4f8brgx1y8hhdx2mq` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99033, Requested 2346. Please try again in 19m51.456s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
-            ],
+            "is_compliant": true,
+            "violated_articles": [],
+            "reasons": [],
             "automated_decision_risk": false,
             "right_to_be_forgotten_applicable": false,
             "lawful_basis_documented": true
